@@ -24,6 +24,7 @@
 		function(matchService,$routeParams,$scope,commonViewFunctionality,matchCommonFunctionality,matchSplitter) {
 			$scope.matchId = $routeParams.matchid;
 			commonViewFunctionality.initCommonFunctions($scope);
+			matchCommonFunctionality.initMatchLoadEvents($scope);
 			matchService.loadMatch($scope.matchId);
 			
 			$scope.$on('matchEventsLoaded', function(e){ 
@@ -40,6 +41,7 @@
 		function(matchService,$routeParams,$scope,commonViewFunctionality,matchCommonFunctionality,matchSplitter,blockScorer) {
 			$scope.matchId = $routeParams.matchid;
 			commonViewFunctionality.initCommonFunctions($scope);
+			matchCommonFunctionality.initMatchLoadEvents($scope);
 			matchService.loadMatch($scope.matchId);
 			$scope.world="Scorer!";
 			
@@ -55,18 +57,19 @@
 		function(matchService,$routeParams,$scope,commonViewFunctionality,matchCommonFunctionality,scoreTouches,matchSplitter,blockScorer) {
 			$scope.matchId = $routeParams.matchid;
 			commonViewFunctionality.initCommonFunctions($scope);
+			matchCommonFunctionality.initMatchLoadEvents($scope);
 			matchService.loadMatch($scope.matchId);
 			
 			$scope.$on('matchEventsLoaded', function(e){ 
 				var matchBlocks = matchSplitter.execute(matchService.getEvents());
-				var touchScores = [];
+				var touchScoreSet = [];
 				for (var matchBlockIndex in matchBlocks) {
 					var matchBlock = matchBlocks[matchBlockIndex];
 					var blockScore = blockScorer.execute(matchBlock);
-					var scoredTouch = scoreTouches.execute(matchBlock,blockScore);
-					touchScores.push(scoredTouch);
+					var touchScores = scoreTouches.execute(matchBlock,blockScore);
+					touchScoreSet.push(touchScores);
 				}
-				$scope.touchScores =touchScores;
+				$scope.touchScoreSet =touchScoreSet;
 			});
 	}]);
 	
