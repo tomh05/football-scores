@@ -1,10 +1,8 @@
 <match-navigation selected="score-touch" is-fixture="false"></match-navigation>
 <div class="container">
 	<h1>Score Touches</h1>
-	Hello {{world}}!
-	P1 = {{prop1}}
-	
 	<div ng-repeat="touchScores in touchScoreSet" ng-if="touchScoreSet">
+		<h2>Block {{$index}}</h2>
 		<table class="table table-striped stats-table" ng-if="touchScores">
 			<tr>
 				<th>Score</th><th>ID</th><th>Time</th><th>Team</th><th>Player</th><th>Event</th>

@@ -83,13 +83,14 @@
 			
 			$scope.$on('matchEventsLoaded', function(e){ 
 				var matchBlocks = matchSplitter.execute(matchService.getEvents());
-				var touchScores = [];
-				for (var matchBlock in matchBlocks) {
+				var touchScoreSet = [];
+				for (var matchBlockIndex in matchBlocks) {
+					var matchBlock = matchBlocks[matchBlockIndex];
 					var blockScore = blockScorer.execute(matchBlock);
-					var scoredTouch = scoreTouches.execute(matchBlock,blockScore);
-					touchScores.push(scoredTouch);
+					var touchScores = scoreTouches.execute(matchBlock,blockScore);
+					touchScoreSet.push(touchScores);
 				}
-				var playerAggregateScores = playerScoreAggregator.execute(touchScores);
+				var playerAggregateScores = playerScoreAggregator.execute(touchScoreSet);
 				$scope.playerAggregateScores =playerAggregateScores;
 			});
 	}]);

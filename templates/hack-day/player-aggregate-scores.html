@@ -1,6 +1,18 @@
 <match-navigation selected="player-aggregate-scores" is-fixture="false"></match-navigation>
 <div class="container">
 	<h1>Aggregate Scores</h1>
-	Hello {{world}}!
+	<table class="table table-striped stats-table" ng-if="playerAggregateScores">
+			<tr>
+				<th>Score</th><th>Player</th>
+			</tr>
+			<tr ng-repeat="playerAggregateScore in playerAggregateScores">
+				<td>{{playerAggregateScore.score}}</td>
+				<td>
+				{{findPlayer(playerAggregateScore.id).getName()}}<br />
+				<player-image playerid="{{playerAggregateScore.id}}"></player-image></td>
+			</tr>
+	</table>
+	<pre ng-if="playerAggregateScores">
 	{{playerAggregateScores}}
+	</pre>
 <div>

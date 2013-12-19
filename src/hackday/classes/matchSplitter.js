@@ -10,9 +10,10 @@ function matchSplitter() {
 	}
 	
 	function execute(matchEvents) {
-		var oneBlock = {touches:[matchEvents.Event[0],matchEvents.Event[1]]};
-		var twoBlock = {touches:[matchEvents.Event[2],matchEvents.Event[3]]};
-		var matchBlocks = [oneBlock,twoBlock];
+		var oneBlock = {touches:[matchEvents.Event[34],matchEvents.Event[35]]};
+		var twoBlock = {touches:[matchEvents.Event[36]]};
+		var threeBlock = {touches:[matchEvents.Event[37],matchEvents.Event[38]]};
+		var matchBlocks = [oneBlock,twoBlock,threeBlock];
 		return matchBlocks;
 	}
 	
