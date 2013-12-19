@@ -4,7 +4,14 @@ function scoreTouches() {
 	return {
 		getProp1:getProp1,
 		setProp1:setProp1,
-		incrementProp1:incrementProp1
+		incrementProp1:incrementProp1,
+		execute:execute
+
+	}
+	
+	function execute(matchBlock, blockScore) {
+		var touchScores = [];
+		return touchScores;
 	}
 	
 	//implementation - unless returned above the methods are not accessible
