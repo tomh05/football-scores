@@ -1,0 +1,42 @@
+<div class="container">
+	<h1>Preferences</h1>
+	<h2>Network Settings</h2>
+	<div class="form-group">
+		<label for="proxySelector">Proxy settings</label>
+		<select id="proxySelector" ng-model="proxyMethod" ng-change="updateProxy()">
+			<option value="reith">BBC Reith Proxy</option>
+			<option value="none">No Proxy</option>
+			<option value="cache">Use locally cached files only</option>
+		</select>
+		<p>
+			If you are working inside the BBC Network set this value to &quot;BBC Reith Proxy&quot;<br />
+			If you are working with no internet connection and running the application 
+			locally set the value to &quot;Use locally cached files only&quot;
+		</p>
+	</div>
+	<div class="form-group">
+		<label for="cacheTimeSelector">Cache Timeout for server side file cache</label>
+		<select id="cacheTimeSelector" ng-model="cacheTime" ng-change="updateCacheTime()">
+			<option value="180">3 minutes</option>
+			<option value="600">10 minutes</option>
+			<option value="3600">1 hour</option>
+			<option value="0">0 minute</option>
+		</select>
+		<p>
+			Controls the amount of time data files are cached server side on the file system<br />
+			<strong>It is recommended to use the highest value possible to reduce load on the OPTA api.</strong>
+		</p>
+	</div>
+	<div class="form-group">
+		<label for="cacheBustSelector">Defeat Browser Cache</label>
+		<select id="cacheBustSelector" ng-model="cacheBust" ng-change="updateCacheBust()">
+			<option value="0">Use browser cache</option>
+			<option value="1">Always download from proxy script</option>
+		</select>
+		<p>
+			Using the browser cache will improve the performance of the application when downloading files.
+		</p>
+	</div>
+</div>
+
+

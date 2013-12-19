@@ -1,0 +1,16 @@
+<div class="container">
+	<ul class="nav nav-pills">
+		<li ng-class="{fixtures: 'active'}[selected]"><a ng-href="#/{{season_id}}/{{competition_id}}/matches">Matches</a></li>
+		<li ng-class="{analysis: 'active'}[selected]"><a ng-href="#/{{season_id}}/{{competition_id}}/analysis">Analysis</a></li>
+		<li><a target="_data" ng-href="http://omo.cloud.opta.net/competition.php?competition={{competition_id}}&season_id={{season_id}}&feed_type=F1">
+			OPTA F1 
+			<span class="glyphicon glyphicon-new-window" ></span>
+			</a>
+		</li>
+		<li><a target="_data" ng-href="http://omo.cloud.opta.net/competition.php?competition={{competition_id}}&season_id={{season_id}}&feed_type=F30">
+			OPTA F30
+			<span class="glyphicon glyphicon-new-window" ></span>
+			</a>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,231 @@
+accurate_back_zone_pass,"A pass that is successful and ends in a player’s own half of the pitch (excludes throw ins, goal kicks and keeper throws)"
+accurate_corners_intobox,Accurate corner distributions into the box – can include long balls if the corner kick is passed greater than 35 yards
+accurate_cross,"Accurate crosses (via corners, open play and set pieces) "
+accurate_cross_nocorner,Accurate crosses in open play ie no set pieces at all
+accurate_fwd_zone_pass,"An accurate pass that ends in the attacking half of the pitch (including crosses but excluding throw ins, goal kicks and keeper throws)"
+accurate_goal_kicks,Accurate goal kicks (from goalkeeper)
+accurate_keeper_throws,Accurate throws from the goalkeeper in open play
+accurate_launches,Long ball played forward without an obvious target but successfully finds a teammate
+accurate_layoffs,A successful pass by a striker who has received the ball with his back to goal and is played back towards team-mates
+accurate_long_balls,"Accurate passes that have a distance greater than 35 yards (excluding throw ins, crosses, keeper throws and goal kicks)"
+accurate_pass,All accurate passes (excluding crosses)
+accurate_through_ball,Accurate passes that leave a player one on one with the goalkeeper 
+accurate_throws,All accurate throw ins
+aerial_lost,Unsuccessful aerial duels (the definition of an aerial duel is that it is between two players - either both jumping or only one jumping and the other contesting the header by making it difficult to win - and one player has to win the contest with a header OR if it is between an outfield player and a goalkeeper then the goalkeeper is allowed to punch it clear)
+aerial_won,Successful aerial duels
+att_bx_centre,Shot from the centre of the box
+att_obx_centre,Total shots from outside the box in the centre (less than 35 yards)
+att_corner,Shot that came after a corner was taken
+att_fastbreak,Shot resulting from a counter attack
+att_freekick_goal,Goal from a direct free kick
+att_freekick_target,A direct free kick saved by the goalkeeper (ie not blocked by an outfield player on the line)
+att_freekick_total,Total shots from direct free kicks
+att_goal_high_centre,A goal in the top centre of the goal
+att_goal_high_left,A goal in the top left of the goal
+att_goal_high_right,A goal in the top right of the goal
+att_goal_low_centre,A goal in the bottom centre of the goal 
+att_goal_low_left,A goal in the bottom left of the goal
+att_goal_low_right,A goal in the bottom right of the goal 
+att_hd_goal,A headed goal
+att_hd_miss,A headed attempt off target of the goal
+att_hd_post,A headed attempt that hits the woodwork
+att_hd_target,A headed attempt that is saved by the goalkeeper (ie not blocked by an outfield player on the line)
+att_hd_total,Total headed attempts
+att_ibox_blocked,Shot attempt from inside the box that is blocked (excludes any shots saved/cleared off the line in a defensive act – this is not the same as a regular goalkeeper save on the line)
+att_ibox_goal,Goals from shots inside the box
+att_ibox_miss,Attempts off target from shots inside the box
+att_ibox_post,Post/crossbar hit from shots inside the box
+att_ibox_target,Shot from inside the box that are saved by the goalkeeper (ie not blocked by an outfield player on the line)
+att_lf_goal,Goal from a left footed shot
+att_lf_target,Left footed shot that was saved by the goalkeeper (ie not blocked by an outfield player on the line)
+att_lf_total,Total left footed shots
+att_miss_high,Attempt that misses over the crossbar
+att_miss_high_left,Attempt that misses over the crossbar and left 
+att_miss_high_right,Attempt that misses over the crossbar and right 
+att_miss_left,Attempt that misses to the left
+att_miss_right,Attempt that misses to the right
+att_obox_blocked,Shot from outside the box that is blocked before reaching the goal (excludes any shots saved/cleared off the line in a defensive act – this is not the same as a regular goalkeeper save on the line)
+att_obox_goal,Goal from a shot outside the box
+att_obox_miss,Shot off that misses the goal completely that is from outside the box
+att_obox_post,Shot from outside the box that hit the woodwork
+att_obox_target,Shot from outside the box that was saved by the goalkeeper (ie not blocked by an outfield player on the line)
+att_obp_goal,Goal with other body part
+att_one_on_one,A shot attempt where the attacker was in a one on one situation against the goal keeper
+att_openplay,A shot attempt that came in ‘regular play’ or in a fast break 
+att_pen_goal,Penalty goals
+att_pen_miss,Penalty shot that goes wide of the goal or over the crossbar 
+att_pen_post,Penalties that hit the woodwork
+att_pen_target,Penalty that was saved by the goalkeeper 
+att_post_high,Shots that hit the crossbar
+att_post_left,Shots that hit the left post
+att_post_right,Shots that hit the right post
+att_rf_goal,Right footed goals
+att_rf_target,Right footed shots that were saved by the goalkeeper (ie not blocked by an outfield player on the line)
+att_rf_total,Total right footed shots
+att_setpiece,"Shot that came directly after a set-piece (corner, free kick or throw in)"
+att_sv_high_centre,Shot that is saved in the top centre part of the goal (ie not blocked by an outfield player on the line)
+att_sv_high_left,Shot that is saved in the top left of the goal (ie not blocked by an outfield player on the line)
+att_sv_high_right,Shot that is saved in the top right of the goal (ie not blocked by an outfield player on the line)
+att_sv_low_centre,Shot that is saved in the bottom centre part of the goal (ie not blocked by an outfield player on the line)
+att_sv_low_left,Shot that is saved in the low left part of the goal (ie not blocked by an outfield player on the line)
+att_sv_low_right,Shot that is saved in the low right part of the goal (ie not blocked by an outfield player on the line)
+attempts_conceded_ibox,Attempts that are allowed from shots that are inside the box 
+attempts_conceded_obox,Attempts that are allowed from shots that are outside the box 
+back_pass,Free kick for passing back to goalkeeper
+ball_recovery,When a player takes possession of a loose ball
+blocked_scoring_att,Shot blocked (excludes any shots saved/cleared off the line in a defensive act which is not the same as a regular goalkeeper save on the line) 
+challenge_lost,Challenge that did not make contact ie a missed challenge where the player was dribbled past (therefore there cannot be a challenge_won metric)
+clean_sheet,No goals conceded in the game (player must play 90 minutes) 
+clearance_off_line,Clearance/blocked shot off the line
+contentious_decision,Any major talking point or error made by the referee
+corner_taken,Player takes a corner
+cross_not_claimed,Goalkeeper tries to catch a cross but misses the ball
+crosses_18yard,Crosses caught by the goalkeeper when delivered from within 18 yards of the by-line.
+crosses_18yardplus,Crosses caught by the goalkeeper when delivered from further than 18 yards from the by-line.
+dangerous_play,Foul for play which could cause serious injury to an opponent
+defender_goals,"Goals scored by defenders – as displayed within the feed in <MatchPlayer Position=""Defender""> or <Player Position=""Defender"">"
+dispossessed,Player is dispossessed on the ball by an opponent – no dribble involved 
+dive_catch,Goalkeeper dives and catches the shot
+dive_save,Goalkeeper dives and parries/deflects the ball to a safe area
+duel_lost,Duel over the possession of the ball where a player loses the ball – doesn’t include ‘overrun’ situations where the attacking player takes on an opponent but the ball runs away from them out of play or to an opponent. *duel_lost – aerial_lost = the amount of lost duels that were deemed only ground duels*
+duel_won,Duel over the possession of the ball where a player wins the ball. *duel_won – aerial_won = the amount of won duels that were deemed only ground duels*
+effective_clearance,Successful defensive clearance – where player under pressure kicks the ball clear of the defensive zone or/and out of play
+effective_head_clearance,Successful defensive clearance via a header – where player under pressure heads the ball clear of the defensive zone or/and out of play
+error_lead_to_goal,Mistake which leads to the opposition scoring 
+error_lead_to_shot,Mistake which leads to an opposition shot
+final_third_entries,A pass or other action where the ball moves from outside the final third into the final third
+fk_foul_won,Free kicks won when fouled or as a result of dangerous play by the opposition (does not include handball or penalties)
+fk_foul_lost,"Free kicks conceded to the opposition via fouls, handballs, dangerous play, 6 second violations, or back passes (does not include penalties)"
+forward_goals,"Goals scored by forwards – as displayed within the feed in <MatchPlayer Position=""Striker""> or <Player Position=""Striker"">"
+fouls,Foul
+fouled_final_third,A foul that occurs in the final third of the pitch (in relation to the attacking player’s final third ie the attacking third)
+game_started,Kick Off – game starts
+gk_smother,Goalkeeper comes out for a loose ball and successful takes possession by diving down to collect a ball that a striker is chasing
+goal_assist,Player assists a goal by being the person who passed the ball to the player who scored the goal
+goal_assist_intentional,Qualifier to confirm the assisting player had a direct intention to set up the goal attempt.
+goal_kicks,Goalkeeper restarts play with a goal kick 
+goals,Goal scored
+goals_conceded,Goal conceded
+goals_conceded_ibox,Goal conceded from a shot inside the box 
+goals_conceded_obox,Goal conceded from a shot outside the box 
+good_high_claim,Goalkeeper catches a cross
+goals_openplay,goals scored from regular play or on a fast break
+good_one_on_one,Goalkeeper wins a one on one situation against attacker eg saves the shot or smothers the ball that is being dribbled by the attacker etc
+hand_ball,Free kick given for handball (included in the foul_lost statistic but not foul_won)
+head_clearance,Clearance via a header
+head_pass,Pass from a header (this statistic always implies a successful headed pass)
+interception,A defending player intercepts a pass between opposition players
+interceptions_in_box,Interception made within the penalty area
+keeper_pick_up,Goalkeeper picks the ball up - usually under pressure
+keeper_throws,Goalkeeper throw outs
+last_man_contest,Player successfully beats the last man in a dribble
+last_man_tackle,When a player makes a defensive action/tackle and they are the last person between the opponent and the goal
+long_pass_own_to_opp,Long pass made from a player’s own half into the opposition’s half 
+long_pass_own_to_opp_success,Successful long pass from a player’s own half into the opposition’s half 
+lost_corners,Corner conceded
+mins_played,Minutes played by player
+midfielder_goals,"Goals scored by midfielders - <MatchPlayer Position=""Midfielder""> or <Player Position=""Midfielder"">"
+offside_provoked,Awarded to the last defender when an offside decision is given 
+offtarget_att_assist,Player assists a player that has a shot that misses the goal
+ontarget_att_assist,Player assists a player that has a shot that is saved by the goalkeeper
+ontarget_scoring_att,"Shot on target (ie not blocked, or doesn’t hit woodwork, but can be saved off the line by a player on the defensive team)"
+outfielder_block,Defender blocks a shot
+own_goals,Own goal conceded
+passes_left,Pass to the left wing (attacking half)
+passes_right,Pass to the right wing (attacking half) 
+pen_goals_conceded,Penalty scored against
+penalty_conceded,Penalty conceded (including handballs) 
+penalty_save,Penalty save made
+penalty_won,Player fouled within the penalty box (excludes any penalties won for handball)
+possession_percentage,The percentage of overall ball possession the team had during the game 
+post_scoring_att,Shot on goal which hits the woodwork
+punches,Goalkeeper punches the ball clear from a high ball
+red_card,Red card
+saved_ibox,Shot saved from shot inside the box 
+saved_obox,Shot saved from shot outside the box 
+saved_setpiece,Shot saved from a direct free kick 
+saves,Total goalkeeper saves
+second_yellow,Second yellow card given
+second_goal_assist,"If there was a 2nd assist, i.e pass to create the opportunity for the player making the assist"
+shot_off_target,Shot wide or over the goal
+six_second_violation,Foul for goalkeeper holding the ball beyond the six second rule
+six_yard_block,Shot that was blocked from a shot inside the six yard box
+stand_catch,Goalkeeper saves a shot by standing and catching
+stand_save,Goalkeeper saves a shot by standing and deflecting/parrying to safety 
+subs_made,Number of substitutions made
+total_att_assist,Player assists a shot (including goals)
+total_attacking_pass,Pass attempted in the attacking half of the pitch (excludes crosses) which by definition are deemed successful/accurate
+total_back_zone_pass,"Total number of passes attempted that end in the player’s own half – excluding throw ins, goal kicks and keeper throws"
+total_clearance,Total number of clearances attempted
+total_contest,A dribble past a player attempted (contests always involve 2 players) – doesn’t include ‘overrun’ situations where the attacking player takes on an opponent but the ball runs away from them out of play or to an opponent 
+total_corners_intobox,Total corners that reached the box – can include long balls if the corner kick is passed greater than 35 yards
+total_cross,"Total crosses (via corners, open play and set pieces)"
+total_cross_nocorner,Total crosses that are not from corners
+total_fastbreak,Total number fast breaks that occurred
+total_fwd_zone_pass,Total passes that end in the attacking half (includes crosses) 
+total_high_claim,Total goalkeeper high claims
+total_launches,These are long balls launched forward into an area of the pitch rather than to a specific team-mate
+total_layoffs,Total passes by a striker who has received the ball with his back to goal and is played back towards team-mates
+total_long_balls,Total passes longer than 35 yards
+total_offside,Total offsides
+total_one_on_one,Total goalkeeper one-on-ones situations against an attacker
+total_pass,"An aggregate of all attempted passes - excluding throw ins, keeper tgoal kicks and crosses. Cannot be calculated from the individual passing statistics within this feed. "
+total_scoring_att,Total shots at goal (excludes own goals) 
+total_sub_off,Total players subbed off
+total_sub_on,Total subs on
+total_tackle,Total tackles
+total_through_ball,"This is a type of pass where the ball is played through to a team-mate bisecting the opposition defensive line and leaving a player one on one with the goalkeeper (excluding throw ins, keeper throws, goal kicks and crosses)"
+total_throws,Total throw ins
+total_yel_card,Total yellow cards awarded to the team overall
+total_red_card,Total red cards awarded to the team overall
+touches,Sum of all a player’s ball events
+turnover,Loss of the ball through a mistake / poor control of the ball – NO LONGER USED
+was_fouled,Number of fouls on the player/team
+won_contest,Total dribbles where a player beats an opponent – no overruns 
+won_corners,Total corners forced
+won_tackle,Total tackles won (winning possession or putting the ball out of play) 
+yellow_card,Yellow cards
+total_flick_on,Total passes which are “flicked” on to an on running teammate - usually a header
+accurate_flick_on,Total passes which are “flicked” on and successfully find a teammate – usually a header
+total_chipped_pass,Total passes which are lofted into the air and not along the ground – does not include crosses
+accurate_chipped_pass,Total successful passes played in the air and not along the ground – does not include crosses
+blocked_cross,Total crosses blocked by defenders
+shield_ball_oop,When defender shields the ball with his body from an opponent as the ball rolls out of play.
+foul_throw_in,Throw in taken incorrectly
+effective_blocked_cross,Cross blocked and defending team wins possession
+penalty_faced,Goalkeeper faced a penalty kick
+total_pull_back,Attacking player reaches the byline and passes the ball in a backwards direction
+accurate_pull_back,Attacking player reaches the byline and successfully passes the ball in a backwards direction to a team mate.
+total_keeper_sweeper,When goalkeeper attempts to come off his line and win possession of the ball
+accurate_keeper_sweeper,"When goalkeeper comes off his line, wins the ball and wins possession for his team."
+goal_assist_openplay,A goal assist from an open play situation
+goal_assist_setplay,"A goal assist from a corner, free kick or throw in situation where the assist itself may be several passes after the set play itself. See goal_assist_deadball for assists directly from a set play"
+att_assist_openplay,A shot assist from an open play situation
+att_assist_setplay,"A shot assist from a corner, freekick or throw in situation where the assist itself may be several passes after the set play itself"
+overrun,Player attempts a dribble but hits the ball too far ahead and loses it
+interception_won,Interception where the player wins and retains possession of the ball
+big_chance_created,Passes which led to a clear cut scoring opportunity eg one on one situation or a shot from just a few yards away
+big_chance_missed,Clear cut scoring opportunities which were not converted / scored
+big_chance_scored,Goals scored which were a clear cut chance
+unsuccessful_touch,Player only touched the ball and lost possession – bad control
+fwd_pass,"Pass forwards (excluding throw ins, keeper throws, goal kicks and crosses)"
+backward_pass,"These are passes that go backward (excluding throw ins, keeper throws, goal kicks and crosses)"
+leftside_pass,"Pass to the player/team left hand side of the pitch in the attacking half (excluding throw ins, keeper throws, goal kicks and crosses)"
+rightside_pass,"Pass to the player/team right hand side of the pitch in the attacking half (excluding throw ins, keeper throws, goal kicks and crosses)"
+total_final_third_passes,"Total passes that end in the final third of the pitch (excluding throw ins, keeper throws, goal kicks and crosses)"
+successful_final_third_passes,"Total successful passes where the ball ends in the final third of the pitch (excluding throw ins, keeper throws, goal kicks and crosses)"
+rescinded_red_card,Red card rescinded by the referee
+diving_save,Combination of ALL diving saves and catches including saves where the ball ends up still in danger in the possession of an attacker
+goals_conc_onfield,Total goals conceded by the team while the player was on the field 
+shots_conc_onfield,Total shots conceded by the team while the player was on the field 
+poss_won_def_3rd,Total possessions regains won in the defensive third of the field 
+poss_won_mid_3rd,Total possessions regains won in the midfield third of the field 
+poss_won_att_3rd,Total possessions regains won in the attacking third of the field 
+poss_lost_all,Total losses of possession
+poss_lost_ctrl,Total losses of possession excluding clearances & long GK distribution 
+goal_fastbreak,Goals scored from a fast break situation
+shot_fastbreak,Shots made following a fast break situation
+pen_area_entries,A pass or other action where the ball moves from outside to inside the penalty area
+final_third_entry,Total passes which end within the attacking third
+hit_woodwork,"Total number of occasions the ball hits the woodwork in any situation (includes blocked onto or saved, but not goals)"
+goal_assist_deadball,Assist directly from a corner or free kick

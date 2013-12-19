@@ -1,0 +1,107 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+	<link rel="icon" type="image/png" href="assets/stats-man.png" />
+  	<!-- bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	
+  </head>
+  <body>
+  <div class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="assets/stats-man.png" width="25">Sport Data Prototype - Football</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Competitions <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+				<li class="dropdown-header">UK Competitions</li>
+				<li ng-repeat="competition in competitions" class="ng-scope">
+					<a ng-href="#/fixtures/1/2013" class="ng-binding" href="#/fixtures/1/2013">English FA Cup</a>
+				</li><!-- end ngRepeat: competition in competitions --><li ng-repeat="competition in competitions" class="ng-scope">
+					<a ng-href="#/fixtures/10/2013" class="ng-binding" href="#/fixtures/10/2013">English Football League Championship</a>
+				</li><!-- end ngRepeat: competition in competitions --><li ng-repeat="competition in competitions" class="ng-scope">
+					<a ng-href="#/fixtures/2/2013" class="ng-binding" href="#/fixtures/2/2013">English League Cup</a>
+				</li>
+				<li ng-repeat="competition in competitions" class="ng-scope">
+					<a ng-href="#/fixtures/7/2013" class="ng-binding" href="#/fixtures/7/2013">English Football League Trophy</a>
+				</li><!-- end ngRepeat: competition in competitions --><li ng-repeat="competition in competitions" class="ng-scope">
+					<a ng-href="#/fixtures/8/2013" class="ng-binding" href="#/fixtures/8/2013">English Barclays Premier League</a>
+				</li>
+				<li class="divider"></li>
+				<li class="dropdown-header">European and International</li>
+				<li ng-repeat="competition in competitions" class="ng-scope">
+					<a ng-href="#/fixtures/4/2013" class="ng-binding" href="#/fixtures/4/2013">World Cup</a>
+				</li><!-- end ngRepeat: competition in competitions --><li ng-repeat="competition in competitions" class="ng-scope">
+					<a ng-href="#/fixtures/5/2013" class="ng-binding" href="#/fixtures/5/2013">Champions League</a>
+				</li><!-- end ngRepeat: competition in competitions --><li ng-repeat="competition in competitions" class="ng-scope">
+					<a ng-href="#/fixtures/6/2013" class="ng-binding" href="#/fixtures/6/2013">UEFA Europa League</a>
+				</li>
+              </ul>
+            </li>
+            <li>
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
+            	<ul  class="dropdown-menu">
+		<!-- ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/97" class="ng-binding">Cardiff City</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/35" class="ng-binding">West Bromwich Albion</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/21" class="ng-binding">West Ham United</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/7" class="ng-binding">Aston Villa</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/80" class="ng-binding">Swansea City</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/1" class="ng-binding">Manchester United</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/88" class="ng-binding">Hull City</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/110" class="ng-binding">Stoke City</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/6" class="ng-binding">Tottenham Hotspur</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/3" class="ng-binding">Arsenal</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/11" class="ng-binding">Everton</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/14" class="ng-binding">Liverpool</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/20" class="ng-binding">Southampton</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/8" class="ng-binding">Chelsea</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/4" class="ng-binding">Newcastle United</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/56" class="ng-binding">Sunderland</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/45" class="ng-binding">Norwich City</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/43" class="ng-binding">Manchester City</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/31" class="ng-binding">Crystal Palace</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' --><li ng-repeat="team in teams | orderBy:'name'" class="ng-scope">
+		<a href="#/team/54" class="ng-binding">Fulham</a>
+		</li><!-- end ngRepeat: team in teams | orderBy:'name' -->
+	</ul>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  <h1>Hello</h1>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

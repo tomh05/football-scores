@@ -1,0 +1,10 @@
+<div class="container" ng-if="breadcrumbs">
+	<ol class="breadcrumb">
+		<li ng-repeat="breadcrumb in breadcrumbs">
+			<ng-switch on="$last">
+			<span ng-switch-when="true">{{breadcrumb.name}}</span>
+			<a ng-switch-default ng-href="{{breadcrumb.href}}">{{breadcrumb.name}}</a>
+			</ng-switch>
+		</li>
+	</ol>
+</div>

@@ -1,0 +1,32 @@
+<breadcrumbs items="breadcrumbItems"></breadcrumbs>
+<match-navigation selected="teamstats" is-fixture="false"></match-navigation>
+<div class="container">
+	<h1 style="display:none">Team Stats</h1>
+	<table class="table table-striped stats-table" ng-if="stats">
+		<tr>
+			<th rowspan="2">Name</th>
+			<th colspan="3" ng-repeat="team in teams">{{getTeamById(team).Name}}</th>
+			<th rowspan="2">Season Means and <abbr title="Standard Deviation">SD</abbr></th>
+			<th rowspan="2">Description</th>
+		</tr>
+		<tr>
+			<th><abbr title="First half">FH</abbr></th>
+			<th><abbr title="Second half">SH</abbr></th>
+			<th><abbr title="Full time">FT</abbr></th>
+			<th><abbr title="First half">FH</abbr></th>
+			<th><abbr title="Second half">SH</abbr></th>
+			<th><abbr title="Full time">FT</abbr></th>
+			<th>FT</th>
+		</tr>
+		<tr ng-repeat="stat in stats|orderBy:['-isSignificant','-maxDeviation']" class="stats-table-fixed-row">
+			<td>{{stat.key}}</td>
+			<td ng-repeat-start="team in teams">{{stat.data[team].FH|number:2}}</td>
+			<td>{{stat.data[team].SH|number:2}}</td>
+			<td ng-class="{true:'significantData'}[stat.data[team].isSignificant]" ng-repeat-end>{{stat.data[team].FT|number:2}} 
+				<span class="glyphicon glyphicon-exclamation-sign" ng-if="stat.data[team].isSignificant" title="This full time value is outside of the usual range for this stat"></span>
+			</td>
+			<td><span ng-if="!seasonTeamStatsAverages[stat.key].mean">Not calculated</span><span ng-if="seasonTeamStatsAverages[stat.key].mean>0">{{seasonTeamStatsAverages[stat.key].mean-seasonTeamStatsAverages[stat.key].stdev|number:2}} <- {{seasonTeamStatsAverages[stat.key].mean|number:2}} -> {{seasonTeamStatsAverages[stat.key].mean+seasonTeamStatsAverages[stat.key].stdev|number:2}}</span></td>
+			<td class="stats-description">{{optaStats[stat.key].description}}</td>
+		</tr>
+	</table>
+</div>

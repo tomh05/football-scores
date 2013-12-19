@@ -1,0 +1,66 @@
+
+<breadcrumbs items="breadcrumbItems"></breadcrumbs>
+<match-navigation selected="overview" is-fixture="false"></match-navigation>
+<div class="container">
+	<h1 style="display:none">Details - {{title}}</h1>
+	<h2 ng-if="matchKeyEvents">Key Events</h2>
+	<ol class="list-inline" ng-if="matchKeyEvents">
+		<li ng-repeat="keyEvent in matchKeyEvents" class="timeline-element {{optaEventCodes[keyEvent._type_id].name}}"><!-- {{keyEvent}} -->
+			<span class="event-time">{{matchTime(keyEvent._min,keyEvent._sec)}} {{optaEventCodes[keyEvent._type_id].name}}</span>
+  			<player-image playerid="{{keyEvent._player_id}}"></player-image>
+			<span class="player-name">{{findPlayer(keyEvent._player_id).getName()}}</span></li>
+	</ol>
+  <h2>Key Facts</h2>
+  <table class="table table-striped stats-table">
+  	<tr><th>Date</th><td>{{match.MatchData.MatchInfo.Date}}</td></th>
+  	<tr><th>Attendance</th><td>{{match.MatchData.MatchInfo.Attendance}}</td></th>
+  	<tr><th>Referee</th><td>{{match.MatchData.MatchOfficial.OfficialName.First}} {{match.MatchData.MatchOfficial.OfficialName.Last}}</td></th>
+  	<tr><th>Weather</th><td>{{match.MatchData.MatchInfo._Weather}}</td></th>
+  </table>
+</div>
+
+<div class="container">
+  <h2>Player Stats </h2>
+   <select ng-model="selectedStatField" ng-init="selectedStatField='passes'">
+		<option ng-repeat="playerStatConfig in playerStatsConfig" value="{{playerStatConfig.fieldName}}">{{playerStatConfig.displayName}}</option>
+	</select>
+  <ul class="list-inline" ng-if="selectedStatField">
+	<li class="player-stat" ng-repeat="playerStat in playerStats|orderBy:'-'+selectedStatField+'_good'| filter:checkStatExists(selectedStatField)">
+		<span class="player-info">
+		<player-image playerid="{{playerStat.player_id}}"></player-image>
+		<span class="player-name">{{findPlayer(playerStat.player_id).getName()}}</span>
+		Succesful: {{playerStat[selectedStatField+'_good']| number}}<br />
+		Failed: {{playerStat[selectedStatField+'_bad']| number}}<br />
+		{{playerStat[selectedStatField+"_good"]*100/playerStat[orderProp]|number:0}}%<br />
+		</span>
+		<table class="table table-striped stats-table">
+			<thead>
+				<th>All stats</th>
+				<th><span class="glyphicon glyphicon-ok green"></span></th>
+				<th><span class="glyphicon glyphicon-thumbs-down red"></span></th>
+				<th>%</th>
+			</thead>
+			<tr ng-repeat="playerStatConfig in playerStatsConfig">
+				<th>{{playerStatConfig.displayName}}</th>
+				<td class="green">{{playerStat[playerStatConfig.fieldName+"_good"]| number}}</td>
+				<td class="red">{{playerStat[playerStatConfig.fieldName+"_bad"]| number}}</td>
+				<td>{{playerStat[playerStatConfig.fieldName+"_good"]*100/playerStat[playerStatConfig.fieldName]|number:0}}%</td>
+			</tr>
+		</table>
+	</li>
+  </ul>
+</div>
+
+
+<div class="container">
+  <table ng-repeat="team in teamData">
+	<tr>
+	  <th colspan="2" title="{{team._TeamRef}}">{{findTeam(team._TeamRef).Name}} {{team._Score}}</th>
+	</tr>
+	<tr ng-repeat="player in team.PlayerLineUp.MatchPlayer">
+	  <td>{{findPlayer(player._PlayerRef).getName()}}</td>
+	  <td>{{player._PlayerRef}}</td>
+	</tr>
+
+  </table>
+</div>

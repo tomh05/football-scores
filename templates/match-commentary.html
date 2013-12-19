@@ -1,0 +1,11 @@
+<breadcrumbs items="breadcrumbItems"></breadcrumbs>
+<match-navigation selected="commentary" is-fixture="false"></match-navigation>
+<div class="container">
+	<h1 style="display:none">Commentary - {{title}}</h1>
+	<table class="table table-striped stats-table" ng-if="commentary">
+		<tr ng-repeat="comment in commentary" id='comment-{{comment._id}}'>
+			<td>{{matchTime(comment._minute,comment._second)}}</td>
+			<td>{{comment._comment}}</td>
+		</tr>
+	</table>
+</div>

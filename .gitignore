@@ -1,0 +1,5 @@
+_Store
+.DS_Store
+._*
+data/competition/*
+data/game_id/*

@@ -1,0 +1,43 @@
+
+<breadcrumbs items="breadcrumbItems"></breadcrumbs>
+<competition-navigation selected="fixtures"></competition-navigation>
+<div class="container">
+	<h1 style="display:none">Fixtures - {{title}}</h1>
+	<div class="row">
+		<div class="col-md-3">
+			<h2>Filter</h2>
+			<div class="form-horizontal">
+				<h4>Matches</h4>
+				<select ng-model="matchTypeFilter"  ng-init="matchTypeFilter='FullTime'">
+          			<option value="">All matches</option>
+          			<!-- option value="Match">Live Matches</option -->
+          			<option value="PreMatch">Fixtures</option>
+          			<option value="FullTime">Results</option>
+          		</select>
+			 </div>
+			<div class="form-horizontal">
+				<h4>Team</h4>
+				<select ng-model="matchFilterTeam" ng-options="team.Name for team in teams| orderBy:'Name'">
+          			<option value="">-- home or away team --</option>
+          		</select>
+			 </div>
+		</div>
+		<div class="col-md-9">
+			<h2>Matches</h2>
+			<p>
+				<select class='pull-right'  ng-model="matchSortOrder" ng-init="matchSortOrder='-MatchInfo.Date'">
+          			<option value="MatchInfo.Date">date ascending</option>
+          			<option value="-MatchInfo.Date">date descending</option>
+          		</select>
+          	Date updated: {{allData._timestamp}}
+			</p>
+			<table class="table table-striped stats-table">
+				<tr ng-repeat="match in matches| filter:matchFilter | orderBy:matchSortOrder"">
+					<td>{{match.MatchInfo.Date}}</td>
+					<td><a ng-href="#/{{season_id}}/{{competition_id}}/match/{{getMatchId(match._uID)}}">{{findTeam(match.TeamData[0]._TeamRef).Name}} {{match.TeamData[0]._Score}} v {{match.TeamData[1]._Score}} {{findTeam(match.TeamData[1]._TeamRef).Name}}</a></td>
+					<td><a ng-href="#/{{season_id}}/{{competition_id}}/match/{{getMatchId(match._uID)}}">view</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

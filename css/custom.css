@@ -1,0 +1,112 @@
+
+
+
+.player-stat {
+	width: 300px;
+}
+
+.player-stat img {
+	position:absolute;
+	left:0;
+	top:0;
+	
+	
+}
+
+.red {
+ color: #ff0000;
+}
+
+.green {
+ color: #00ff00;
+}
+
+table.stats-table td, table.stats-table th {
+	font-size: 0.85em;
+}
+
+li.player-stat {
+	border: solid 1px #cccccc;
+	margin: 2px;
+	padding: 3px;
+}
+
+span.player-info {
+	display:block;
+	position: relative;
+	height:100px;
+	padding-left: 125px;
+	width:100%;
+}
+
+span.player-name {
+	display:block;
+	color: #ffffff;
+	background-color: rgba(34,34,34,0.5);
+	width: 120px;
+	height: 1.3em;
+	position:absolute;
+	padding-left: 5px;
+	margin-left: 0px;
+	left:0;
+	top:65px;
+	font-size: 0.8em;
+	font-weight: normal;
+}
+
+.timeline-element {
+	width: 120px;
+	height: 83px;
+	border: solid 1px #cccccc;
+	margin: 2px;
+	padding: 3px;
+	position: relative;
+	overflow: hidden;
+}
+
+.timeline-element img {
+	position: absolute;
+	left:0;
+	top:1.1em;
+}
+
+.timeline-element span.event-time {
+	position: absolute;
+	display:block;
+	left:0;
+	top:0px;
+	font-size: 0.8em;
+	font-weight: normal;
+	width: 120px;
+	height: 1.3em;
+	color: #ffffff;
+	background-color: rgba(34,34,34,0.5);
+	z-index: 1;
+}
+li.timeline-element.Goal span.event-time {
+	background-color: rgba(24,120,24,0.7);
+	color: #ffffff;
+}
+
+.commentary table {
+	width: 90%;
+}
+.event-qualifier {
+	background-color: rgba(24,24,24,0.2);
+	margin:3px;
+	padding:6px;
+	-webkit-border-radius: 4px;
+	font-size: 0.7em;
+}
+
+.stats-table-fixed-row {
+	max-height:1.2em;
+}
+.stats-description {
+ 	width:300px;
+ 	overflow:ellipsis;
+}
+
+.significantData {
+	color:red;
+}

@@ -1,0 +1,52 @@
+
+<breadcrumbs items="breadcrumbItems"></breadcrumbs>
+<competition-navigation selected="analysis"></competition-navigation>
+<div class="container">
+	<h1 >Competition Analysis</h1>
+	<h2>Overview</h2>
+	<table class="table table-striped stats-table">
+		<tr>
+			<th>Detail</th>
+			<th>Value</th>
+		</tr>
+		<tr>
+			<td>Total Matches</td>
+			<td>{{totalMatches}}</td>
+			
+		</tr>
+		<tr>
+			<td>Matches Loaded</td>
+			<td>{{matchesLoaded}}</td>
+			
+		</tr>
+		<tr>
+			<td>Loading Errors</td>
+			<td>{{errorsLoading}}</td>
+		</tr>
+		<tr>
+			<td>Status</td>
+			<td>{{status}}</td>
+		</tr>
+	</table>
+	<h2 ng-if="seasonStats">Team Season Stats</h2>
+	<table class="table table-striped stats-table" ng-if="seasonStats">
+		<tr>
+			<th>Name</th>
+			<th>Count</th>
+			<th>Mean</th>
+			<th>Total</th>
+			<th>Variance</th>
+			<th>Description</th>
+		</tr>
+		<tr ng-repeat="stat in seasonStats" ng-if="stat.total>0" class="stats-table-fixed-row">
+			<td>{{stat.key}}</td>
+			<td>{{stat.count}}</td>
+			<td>{{stat.mean|number:2}}</td>
+			<td>{{stat.total}}</td>
+			<td>{{stat.stdev|number:2}}</td>
+			<td class="stats-description">{{optaStats[stat.key].description}}</td>
+		</tr>
+	</table>
+	<h3 ng-if="finished">Raw Data</h2>
+	<pre ng-if="finished">{{overviewSeasonStats}}</pre>
+</div>
