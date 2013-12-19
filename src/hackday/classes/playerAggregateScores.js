@@ -10,7 +10,7 @@ function playerAggregateScores() {
 	}
 	
 	function execute(touchScores) {
-		var playerScores = [];
+		var playerScores = [{playerid: 1, score: 20}];
 		return playerScores;
 	}
 	
