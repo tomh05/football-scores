@@ -24,6 +24,9 @@ function matchSplitter() {
             if (t == 32 || t==34 || t==43) {
                 continue;
             }
+            if (t==5 && e._outcome == 1) {
+            	continue;
+            }
 
             //assign team_id to current block, if it's the first pass
             if (curBlock.touches.length <= 2 && e._type_id == 1 && e._outcome) {
@@ -76,7 +79,7 @@ function matchSplitter() {
         matchBlocks.push(curBlock);
         
         // delete any blocks with no touches
-        for (var i=matchBlocks.length-1;i>0;i--) {
+        for (var i=matchBlocks.length-1;i>=0;i--) {
         	if (matchBlocks[i].touches.length==0) {
         		matchBlocks.splice(i, 1);
         	}

@@ -10,7 +10,7 @@ function blockScorer() {
 	}
 
 	function execute(matchBlock) {
-		var blockScore = {score:10};
+		var blockScore = {score:10,matchBlock:matchBlock};
 		return blockScore;
 	}
 	
