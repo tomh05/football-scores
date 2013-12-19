@@ -60,7 +60,8 @@
 			$scope.$on('matchEventsLoaded', function(e){ 
 				var matchBlocks = matchSplitter.execute(matchService.getEvents());
 				var touchScores = [];
-				for (var matchBlock in matchBlocks) {
+				for (var matchBlockIndex in matchBlocks) {
+					var matchBlock = matchBlocks[matchBlockIndex];
 					var blockScore = blockScorer.execute(matchBlock);
 					var scoredTouch = scoreTouches.execute(matchBlock,blockScore);
 					touchScores.push(scoredTouch);
