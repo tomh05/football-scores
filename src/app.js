@@ -36,6 +36,26 @@
 			templateUrl: 'templates/team.html',
 			controller: 'teamController'
 		  }).
+	  	  when('/:year/:competitionid/match/:matchid/hack-day/', {
+			templateUrl: 'templates/hack-day/index.html',
+			controller: 'hackdayIndexController'
+		  }).
+		  when('/:year/:competitionid/match/:matchid/hack-day/match-splitter', {
+			templateUrl: 'templates/hack-day/match-splitter.html',
+			controller: 'hackdayMatchSplitterController'
+		  }).
+		  when('/:year/:competitionid/match/:matchid/hack-day/block-scorer', {
+			templateUrl: 'templates/hack-day/block-scorer.html',
+			controller: 'hackdayBlockScorerController'
+		  }).
+		  when('/:year/:competitionid/match/:matchid/hack-day/score-touch', {
+			templateUrl: 'templates/hack-day/score-touch.html',
+			controller: 'hackdayScoreTouchController'
+		  }).
+		  when('/:year/:competitionid/match/:matchid/hack-day/player-aggregate-scores', {
+			templateUrl: 'templates/hack-day/player-aggregate-scores.html',
+			controller: 'hackdayPlayerAggregateScoresController'
+		  }).
 		  otherwise({
 			redirectTo: '/2013/8/matches' // premiership
 		  });

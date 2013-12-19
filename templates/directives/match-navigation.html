@@ -1,8 +1,29 @@
 <div class="container">
 	<ul class="nav nav-pills">
-		<li ng-class="{overview: 'active'}[selected]"><a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}">Overview</a></li>
-		<li ng-class="{commentary: 'active'}[selected]"><a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/commentary">Commentary</a></li>
-		<li ng-class="{teamstats: 'active'}[selected]"><a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/team-stats">Team Stats</a></li>
+		<li ng-class="{overview: 'active'}[selected]">
+			<a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}">Overview</a>
+		</li>
+		<li ng-class="{commentary: 'active'}[selected]">
+			<a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/commentary">Commentary</a>
+		</li>
+		<li ng-class="{teamstats: 'active'}[selected]">
+			<a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/team-stats">Team Stats</a>
+		</li>
+		<li ng-class="{'hack-day-index': 'active'}[selected]">
+			<a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/hack-day/">Hack Day Index</a>
+		</li>
+		<li ng-class="{'match-splitter': 'active'}[selected]">
+			<a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/hack-day/match-splitter">Match Splitter</a>
+		</li>
+		<li ng-class="{'block-scorer': 'active'}[selected]">
+			<a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/hack-day/block-scorer">Block Scorer</a>
+		</li>
+		<li ng-class="{'score-touch': 'active'}[selected]">
+			<a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/hack-day/score-touch">Score Touch</a>
+		</li>
+		<li ng-class="{'player-aggregate-scores': 'active'}[selected]">
+			<a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/hack-day/player-aggregate-scores">Player Aggregate scores</a>
+		</li>
 		<!--li ng-class="{playerstats: 'active'}[selected]"><a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/playerstats">Player Stats</a></li-->
 		<li ng-class="{eventlist: 'active'}[selected]"><a ng-href="#/{{season_id}}/{{competition_id}}/match/{{match_id}}/events">All Events</a></li>
 		<li ng-if="isResultOrLive"><a target="_data" ng-href="proxy.php?game_id={{match_id}}&feed_type=F9&proxyMethod={{proxyMethod}}">F9 feed <span class="glyphicon glyphicon-new-window" ></span></a></li>
