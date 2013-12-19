@@ -14,20 +14,23 @@ function matchSplitter() {
         var matchBlocks = []; 
 
 
-        var curBlock = {events:[]};
+        var curBlock = {touches:[]};
         curBlock["team_id"] = 0;
 
         
         for (var i=0;i<matchEvents.Event.length; i++) {
 
-                //curBlock.touches.push(matchEvents.Event[i]);
-                curBlock.events.push(matchEvents.Event[i]);
-
+            // free kick
             if (matchEvents.Event[i]._type_id == 4) { // if need new block
 
+                curBlock.touches.push(matchEvents.Event[i]);
                 matchBlocks.push(curBlock);
-                curBlock = {events:[]};
+                curBlock = {touches:[]};
 
+            } 
+
+            else {
+                curBlock.touches.push(matchEvents.Event[i]);
             }
 
         }
