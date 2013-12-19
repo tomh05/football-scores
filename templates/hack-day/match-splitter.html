@@ -1,6 +1,28 @@
 <match-navigation selected="match-splitter" is-fixture="false"></match-navigation>
 <div class="container">
 	<h1>Match Splitter</h1>
-	Hello {{world}}!
-	{{matchBlocks}}
+	<div ng-repeat="matchBlock in matchBlocks| limitTo:20" ng-if="matchBlocks">
+		<h2>Block {{$index}}</h2>
+		<table class="table table-striped stats-table">
+			<tr>
+				<th>ID</th><th>Time</th><th>Team</th><th>Player</th><th>Event</th>
+				<th>X,Y</th><th>Qualifiers</th>
+			</tr>
+			<tr ng-repeat="event in matchBlock.touches">
+				<td>{{event._event_id}}</td>
+				<td title="{{event._timestamp}}">{{matchTime(event._min,event._sec)}}</td>
+				<td>{{getTeamById(event._team_id).Name}}</td>
+				<td><span ng-if="event._player_id">{{findPlayer(event._player_id).getName()}} </span></td>
+				<td title="{{event._type_id}} - {{optaEventCodes[event._type_id].description}}">{{optaEventCodes[event._type_id].name}}&nbsp;<span ng-if="event._outcome" title="successful outcome" style="color:rgb(20,127,20);" class="glyphicon glyphicon-ok-sign"></span></td>
+				<td>{{event._x}},{{event._y}}</td>
+				<td>
+					<ul ng-if="event.Q" class="list-inline">
+						<li ng-repeat="qualifier in event.Q" class="event-qualifier">
+							<opta-event-qualifier qualifier="qualifier"/>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
