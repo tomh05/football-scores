@@ -74,6 +74,13 @@ function matchSplitter() {
 		//var matchBlocks = [oneBlock,twoBlock];
         
         matchBlocks.push(curBlock);
+        
+        // delete any blocks with no touches
+        for (var i=matchBlocks.length-1;i>0;i--) {
+        	if (matchBlocks[i].touches.length==0) {
+        		matchBlocks.splice(i, 1);
+        	}
+        }
 		return matchBlocks;
 	}
 	
