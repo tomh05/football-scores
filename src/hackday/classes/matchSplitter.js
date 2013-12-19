@@ -17,21 +17,39 @@ function matchSplitter() {
         var curBlock = {touches:[]};
         curBlock["team_id"] = 0;
 
-        
-        for (var i=0;i<matchEvents.Event.length; i++) {
 
-            // free kick
+        for (var i=0;i<matchEvents.Event.length; i++) {
+            var e = matchEvents.Event[i];
+
+
+            // iterate through qualifiers
+            if (e.Q != null) {
+
+                for (var j=0;j<e.Q.length;j++) {
+                    // free kick: start new block
+                    if (e.Q[j]._qualifier_id == 5) {
+                        matchBlocks.push(curBlock);
+                        curBlock = {touches:[]};
+                        continue;
+                    }
+                    // throw in: start new block
+                    else if (e.Q[j]._qualifier_id == 131) {
+                        matchBlocks.push(curBlock);
+                        curBlock = {touches:[]};
+                        continue;
+                    }
+            }
+            }
+
             if (matchEvents.Event[i]._type_id == 4) { // if need new block
 
                 curBlock.touches.push(matchEvents.Event[i]);
                 matchBlocks.push(curBlock);
                 curBlock = {touches:[]};
-
+                continue;
             } 
 
-            else {
                 curBlock.touches.push(matchEvents.Event[i]);
-            }
 
         }
 
