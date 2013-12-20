@@ -65,6 +65,18 @@ function matchSplitter() {
                 }
             }
 
+            // if it's an interception, and next two elements are same team, start new block
+            if (e._type_id == 8) {
+                var e1 = matchEvents.Event[i+1];
+                var e2 = matchEvents.Event[i+2];
+                if (e1._team_id == e._team_id && e2._team_id == e._team_id) { 
+                   isNewBlock = true;
+                  debugStatus = "intercepted"; 
+                }
+            }
+
+
+
             // if it's a pass, and successful, and by a new team
             if (e._type_id == 1 && e._outcome == 1 && e._team_id != curBlock._team_id) { 
                isNewBlock = true; 
