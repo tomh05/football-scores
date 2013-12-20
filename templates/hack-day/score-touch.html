@@ -13,7 +13,7 @@
 			<tr ng-repeat="touchScore in touchScores.scores">
 				<td>{{touchScore.percentage*100|number:2}}%</td>
 				<td>{{touchScore.awardRatio|number:2}}</td>
-				<td>{{touchScore.score|number:2}}</td>
+				<td><div style="display: inline-block; width: calc({{touchScore.score|number:2}} * 10%); height: 25px; background-color: #fede2d; padding:3px; margin-bottom:5px">{{touchScore.score|number:2}}</div>
 				<td>{{touchScore.touch._event_id}}</td>
 				<td title="{{touchScore.touch._timestamp}}">{{matchTime(touchScore.touch._min,touchScore.touch._sec)}}</td>
 				<td>{{getTeamById(touchScore.touch._team_id).Name}}</td>

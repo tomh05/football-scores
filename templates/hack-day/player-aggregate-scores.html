@@ -1,7 +1,6 @@
 <breadcrumbs items="breadcrumbItems"></breadcrumbs>
 <match-navigation selected="player-aggregate-scores" is-fixture="false"></match-navigation>
 <div class="container">
-	<h1>Aggregate Scores</h1>
 	<div ng-if="teamScores" class="row">
 		<div class="col-md-6 aggregate-panel-{{$index}}">
 			<table class="table table-striped stats-table" >
@@ -30,7 +29,7 @@
 				</tr>
 				<tr ng-repeat="playerAggregateScore in teamScores[1].scores|orderBy:'-score'">
 					<td align="right"><div style="padding:3px;height: 20px; width: {{playerAggregateScore.score*0.75|number:0}}px; background-color: #fede2d; border-right: #cebe0d 2px solid;border-bottom: #cebe0d 2px solid;">{{playerAggregateScore.score|number:2}}</div></td>
-					<td>
+					<td style="text-align:right">
 						<player-image playerid="{{playerAggregateScore._player_id}}"></player-image>
                         <br /><b>{{findPlayer(playerAggregateScore._player_id).getName()}}</b><br />
 					</td>
