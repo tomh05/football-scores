@@ -8,6 +8,14 @@
 	app.factory('playerScoreAggregator', [playerAggregateScores]);
 	
 	
+	function createBreadcrumbs(matchCommonFunctionality,name) {
+		var breadcrumbs = matchCommonFunctionality.getMatchBreadCrumbs();
+		breadcrumbs.push({
+			name: name,
+			url:''
+		});
+		return breadcrumbs;
+	}
 	// controllers are connected to url routes inside src/app.js
 	app.controller('hackdayIndexController',
 		['matchService','$routeParams','$scope', 'commonViewFunctionality','matchCommonFunctionality',
@@ -15,7 +23,6 @@
 			$scope.matchId = $routeParams.matchid;
 			commonViewFunctionality.initCommonFunctions($scope);
 			matchService.loadMatch($scope.matchId);
-			$scope.world="Index";
 	}]);
 	
 	
@@ -30,9 +37,8 @@
 			$scope.$on('matchEventsLoaded', function(e){ 
 				var matchBlocks = matchSplitter.execute(matchService.getEvents());
 				$scope.matchBlocks =matchBlocks;
+				$scope.breadcrumbItems = createBreadcrumbs(matchCommonFunctionality,'match splitter');
 			});
-			
-			$scope.world="Splitter!";
 	}]);
 	
 	
@@ -54,6 +60,7 @@
 					blockScores.push(blockScore);
 				}
 				$scope.blockScores=blockScores;
+				$scope.breadcrumbItems = createBreadcrumbs(matchCommonFunctionality,'block scorer');
 			});
 	}]);
 	
@@ -75,6 +82,7 @@
 					touchScoreSet.push(touchScores);
 				}
 				$scope.touchScoreSet =touchScoreSet;
+				$scope.breadcrumbItems = createBreadcrumbs(matchCommonFunctionality,'score touches');
 			});
 	}]);
 	
@@ -97,21 +105,8 @@
 				}
 				var playerAggregateScores = playerScoreAggregator.execute(touchScoreSet);
 				$scope.playerAggregateScores =playerAggregateScores;
+				$scope.breadcrumbItems = createBreadcrumbs(matchCommonFunctionality,'player scores');
 			});
-	}]);
-	
-	app.directive('eventTableRow',['commonViewFunctionality',function(commonViewFunctionality){
-		return {
-			scope:{
-				selected: "=event"
-			},
-			restrict: 'E',
-			replace:true,
-			templateUrl: "templates/hack-day/directives/event-table-row.html",
-			controller: function($scope){
-				commonViewFunctionality.initCommonFunctions($scope);
-			}
-		}
 	}]);
 	
 	
