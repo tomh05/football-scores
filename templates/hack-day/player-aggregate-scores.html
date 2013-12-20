@@ -6,17 +6,17 @@
 		<div class="col-md-6 aggregate-panel-{{$index}}">
 			<table class="table table-striped stats-table" >
 				<tr>
-					<th colspan="2">{{findTeam(teamScores[0]._team_id).Name}} - {{teamScores[0].total|number:0}}</th>
+                    <th colspan="2">{{findTeam(teamScores[0]._team_id).Name}} - {{teamScores[0].total|number:0}}</th>
 				</tr>
 				<tr>
-					<th>Player</th><th>Score</th>
+                    <th><em>Player</em></th><th><em>Score</em></th>
 				</tr>
 				<tr ng-repeat="playerAggregateScore in teamScores[0].scores|orderBy:'-score'">
 					<td>
 						<player-image playerid="{{playerAggregateScore._player_id}}"></player-image>
-						<br />{{findPlayer(playerAggregateScore._player_id).getName()}}<br />
+                        <br /><b>{{findPlayer(playerAggregateScore._player_id).getName()}}</b><br />
 					</td>
-					<td><div style="padding:3px;height: 20px; width: {{playerAggregateScore.score*0.75|number:0}}px; background-color: #fede2d;border:1px solid #cccccc;">{{playerAggregateScore.score|number:2}}</div></td>
+					<td><div style="padding:3px;height: 20px; width: {{playerAggregateScore.score*0.75|number:0}}px; background-color: #fede2d; border-right: #cebe0d 2px solid;border-bottom: #cebe0d 2px solid;">{{playerAggregateScore.score|number:2}}</div></td>
 				</tr>
 			</table>
 		</div>
@@ -26,13 +26,13 @@
 					<th colspan="2" style="text-align:right">{{teamScores[1].total|number:0}} - {{findTeam(teamScores[1]._team_id).Name}}</th>
 				</tr>
 				<tr>
-					<th style="text-align:right">Score</th><th style="text-align:right">Player</th>
+                    <th style="text-align:right"><em>Score</em></th><th style="text-align:right"><em>Player</em></th>
 				</tr>
 				<tr ng-repeat="playerAggregateScore in teamScores[1].scores|orderBy:'-score'">
-					<td align="right"><div style="padding:3px;height: 20px; width: {{playerAggregateScore.score*0.75|number:0}}px; background-color: #fede2d;border:1px solid #cccccc;">{{playerAggregateScore.score|number:2}}</div></td>
+					<td align="right"><div style="padding:3px;height: 20px; width: {{playerAggregateScore.score*0.75|number:0}}px; background-color: #fede2d; border-right: #cebe0d 2px solid;border-bottom: #cebe0d 2px solid;">{{playerAggregateScore.score|number:2}}</div></td>
 					<td>
 						<player-image playerid="{{playerAggregateScore._player_id}}"></player-image>
-						<br />{{findPlayer(playerAggregateScore._player_id).getName()}}<br />
+                        <br /><b>{{findPlayer(playerAggregateScore._player_id).getName()}}</b><br />
 					</td>
 				</tr>
 			</table>
