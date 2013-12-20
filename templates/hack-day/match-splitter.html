@@ -1,16 +1,18 @@
+<breadcrumbs items="breadcrumbItems"></breadcrumbs>
 <match-navigation selected="match-splitter" is-fixture="false"></match-navigation>
 <div class="container">
 	<h1>Match Splitter</h1>
-	<div ng-repeat="matchBlock in matchBlocks| limitTo:100" ng-if="matchBlocks">
-        <h2>Block {{$index}}</h2>
+	<div ng-repeat="matchBlock in matchBlocks| limitTo:10" ng-if="matchBlocks">
+        <h4>Block {{$index}}</h4>
         <p><b>{{getTeamById(matchBlock._team_id).Name}}</b>: {{matchBlock.debug}} </p>
 		<table class="table table-striped stats-table">
 			<tr>
-				<th>ID</th><th>Time</th><th>Team</th><th>Player</th><th>Event</th>
+                <th></th>
+                <th>ID</th><th>Time</th><th>Team</th><th>Player</th><th>Event</th>
 				<th>X,Y</th><th>Qualifiers</th>
 			</tr>
 			<tr ng-repeat="event in matchBlock.touches">
-                <!--<td>{{matchBlock._team_id}}</td>-->
+                <td style="width:10px; background-color:{{matchBlock.color}}"></td>
 				<td>{{event._event_id}}</td>
 				<td title="{{event._timestamp}}">{{matchTime(event._min,event._sec)}}</td>
 				<td>{{getTeamById(event._team_id).Name}}</td>
@@ -26,5 +28,5 @@
 				</td>
 			</tr>
 		</table>
-	</div>
+    </div>
 </div>
