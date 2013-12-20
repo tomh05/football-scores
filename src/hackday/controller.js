@@ -91,10 +91,11 @@
 	}]);
 	
 	app.controller('hackdayPlayerAggregateScoresController',
-		['matchService','$routeParams','$scope', 'commonViewFunctionality','matchCommonFunctionality','scoreTouches','matchSplitter','blockScorer','playerScoreAggregator',
-		function(matchService,$routeParams,$scope,commonViewFunctionality,matchCommonFunctionality,scoreTouches,matchSplitter,blockScorer,playerScoreAggregator) {
+		['matchService','$routeParams','$scope', 'commonViewFunctionality','matchCommonFunctionality','scoreTouches','matchSplitter','blockScorer','playerScoreAggregator','matchService',
+		function(matchService,$routeParams,$scope,commonViewFunctionality,matchCommonFunctionality,scoreTouches,matchSplitter,blockScorer,playerScoreAggregator,matchService) {
 			$scope.matchId = $routeParams.matchid;
 			commonViewFunctionality.initCommonFunctions($scope);
+			$scope.findTeam = matchService.getTeamById;
 			matchService.loadMatch($scope.matchId);
 			$scope.world="PlayerAggregateScores!";
 			
@@ -110,6 +111,22 @@
 					touchScoreSet.push(touchScores);
 				}
 				var playerAggregateScores = playerScoreAggregator.execute(touchScoreSet);
+				var teamScores=[{_team_id:0,total:0,scores:[]},{team:0,total:0,scores:[]}];
+				var homeTeam =-1;
+				for (var i=0;i<playerAggregateScores.length;i++) {
+					var playerAggregateScore = playerAggregateScores[i];
+					var isHomeTeam = false;
+					var teamIndex = 1;
+					if (homeTeam == -1 || playerAggregateScore._team_id == homeTeam) {
+						homeTeam = playerAggregateScore._team_id;
+						isHomeTeam = true;
+						teamIndex = 0;
+					} 
+					teamScores[teamIndex]._team_id = playerAggregateScore._team_id;
+					teamScores[teamIndex].scores.push(playerAggregateScore);
+					teamScores[teamIndex].total += playerAggregateScore.score;
+				}
+				$scope.teamScores = teamScores;
 				$scope.playerAggregateScores =playerAggregateScores;
 				$scope.breadcrumbItems = createBreadcrumbs(matchCommonFunctionality,'player scores');
 			});
