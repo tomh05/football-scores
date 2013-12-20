@@ -52,9 +52,25 @@ function matchSplitter() {
                isNewBlock = true; 
                 debugStatus="throw in";
                     }
+                    else if (e.Q[j]._qualifier_id == 124) {
+               isNewBlock = true; 
+                debugStatus="goal kick";
+                    }
                 }
             }
             
+
+            // if it's ball recovery and previous element belongs to other team, start new block
+            if (e._type_id == 49) {
+            var eminus1 = matchEvents.Event[i-1];
+                if (eminus1._team_id != e._team_id) {
+                   isNewBlock = true;
+                  debugStatus = "ball recovery"; 
+                }
+            }
+
+
+
             // if it's dispossessed and next two elements belong to other team, start new block
             var eminus1 = matchEvents.Event[i-1];
             if (eminus1._type_id == 50) {
@@ -63,6 +79,22 @@ function matchSplitter() {
                    isNewBlock = true;
                   debugStatus = "disposessed"; 
                 }
+            }
+
+            // if it's an interception, and next two elements are same team, start new block
+            if (e._type_id == 8) {
+                var e1 = matchEvents.Event[i+1];
+                var e2 = matchEvents.Event[i+2];
+                if (e1._team_id == e._team_id && e2._team_id == e._team_id) { 
+                   isNewBlock = true;
+                  debugStatus = "intercepted"; 
+                }
+            }
+
+            // if it's a keeper pickup, start new block
+            if (e._type_id == 52) { 
+               isNewBlock = true; 
+                debugStatus="keeper pick-up";
             }
 
             // if it's a pass, and successful, and by a new team
