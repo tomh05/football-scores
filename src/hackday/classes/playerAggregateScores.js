@@ -27,9 +27,13 @@ function playerAggregateScores() {
 				if (playerId != null) {
 					// and add their score to it
 					if (playerScoresMappedById[playerId] == null) {
-						playerScoresMappedById[playerId] = 0;
+						playerScoresMappedById[playerId] = {
+							score:0,
+							_player_id:playerId,
+							_team_id:scoredTouch.touch._team_id
+						};
 					}
-					playerScoresMappedById[playerId] += scoredTouch.score;
+					playerScoresMappedById[playerId].score += scoredTouch.score;
 				}
 				
 			}
@@ -37,9 +41,7 @@ function playerAggregateScores() {
 		}
 		var playerScores = [];
 		for (key in playerScoresMappedById) {
-			playerScores.push(
-				{id:key,score:playerScoresMappedById[key]}
-			);
+			playerScores.push(playerScoresMappedById[key]);
 		}
 		return playerScores;
 	}

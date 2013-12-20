@@ -85,11 +85,10 @@ function matchSplitter() {
                 }
             }
 
-            // if it's an interception, and next two elements are same team, start new block
+            // if it's an interception, and next element is same team, start new block
             if (e._type_id == 8) {
                 var e1 = matchEvents.Event[i+1];
-                var e2 = matchEvents.Event[i+2];
-                if (e1._team_id == e._team_id && e2._team_id == e._team_id) { 
+                if (e1._team_id == e._team_id) { 
                    isNewBlock = true;
                   debugStatus = "intercepted"; 
                 }
@@ -101,11 +100,11 @@ function matchSplitter() {
                 debugStatus="keeper pick-up";
             }
 
-            // if previous event is attempt saved, start new block
+            // if previous event is a saved, start new block
              var eminus1 = matchEvents.Event[i-1];
-            if (eminus1._type_id == 15) {
+            if ((eminus1._type_id == 10 && e._type_id != 15)|| (eminus1._type_id == 15 && e._type_id != 10)) {
                    isNewBlock = true;
-                  debugStatus = "attempt saved"; 
+                  debugStatus = "saved/attempt"; 
             }           
 
             // if it's a pass, and successful, and by a new team

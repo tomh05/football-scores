@@ -27,7 +27,12 @@ function blockScorer() {
 			// calculate the distace from the goal
 			var distanceFromOpponentsGoal = Math.sqrt(Math.pow(100 - lastTouch._x, 2) + Math.pow(50 - lastTouch._y, 2));
 
-			var blockScoreValue = (1 - (distanceFromOpponentsGoal / maxDistance)) * 10;
+			blockScoreValue = (1 - (distanceFromOpponentsGoal / maxDistance)) * 10;
+			
+			// post save or goal
+			if (["14","15","16"].indexOf(lastTouch._type_id)>-1) {
+				blockScoreValue=blockScoreValue*1.25;
+			}
 		} else
 			blockScoreValue = 0;
 

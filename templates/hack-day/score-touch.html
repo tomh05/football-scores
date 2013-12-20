@@ -3,7 +3,7 @@
 	<h1>Touch Scores</h1>
 	<div ng-repeat="touchScores in touchScoreSet" ng-if="touchScoreSet">
 		<h2>Block {{$index}}</h2>
-        <p><b>{{getTeamById(touchScores._team_id).Name}}</b> - Block Score = {{touchScores.blockScore.score}}  </p>
+        <p><b>{{getTeamById(touchScores._team_id).Name}}</b> - Block Score = {{touchScores.blockScore.score|number:2}}  </p>
 		<table class="table table-striped stats-table" ng-if="touchScores">
 			<tr>
 				<th>Percentage</th><th>Ratio</th><th>Score</th><th>ID</th><th>Time</th><th>Team</th><th>Player</th><th>Event</th>
