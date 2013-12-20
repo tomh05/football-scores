@@ -20,13 +20,30 @@ function scoreTouches() {
 		for (var touchIndex= totalTouches; percentage>0 && touchIndex>=0; touchIndex--) {
 			var touch = matchBlock.touches[touchIndex];
 			var touchScore = {touch:touch,score:0, percentage:0,awardRatio:0};
+			// do not award outs and ball recoverys
 			if (touch._type_id != 5 && touch._type_id != 49) {
 				var awardScore = false;
 				var awardRatio = 1;
+				
 				if (touch._team_id == possesionTeamId) {
 					awardScore = true;
+					if (touch._type_id == 4 && touch._outcome==0) {
+						// no awards for making a foul
+						awardScore = false;
+					}
+					// post save or goal
+					if (["14","15","16"].indexOf(touch._type_id)>-1) {
+						awardRatio=awardRatio*1.25;
+					}
 				} else if (touch._outcome==1) {
-					awardScore = true;
+					// fouls _outcome =1 when player made the foul
+					if (touch._type_id != 4) {
+						awardScore = true;
+					}
+				}
+				// negatively award mistakes
+				if (touch._type_id == 51) {
+					awardRatio = -awardRatio;
 				}
 				if (awardScore) {
 					touchScore.percentage = percentage;

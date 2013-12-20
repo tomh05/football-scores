@@ -8,8 +8,9 @@
 			<tr ng-repeat="playerAggregateScore in playerAggregateScores|orderBy:'-score'">
 				<td>{{playerAggregateScore.score|number:2}}</td>
 				<td>
-				{{findPlayer(playerAggregateScore.id).getName()}}<br />
-				<player-image playerid="{{playerAggregateScore.id}}"></player-image></td>
+				{{findPlayer(playerAggregateScore._player_id).getName()}}<br />
+				{{getTeamById(playerAggregateScore._team_id).Name}}<br />
+				<player-image playerid="{{playerAggregateScore._player_id}}"></player-image></td>
 			</tr>
 	</table>
 	<pre ng-if="playerAggregateScores">
