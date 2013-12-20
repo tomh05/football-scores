@@ -36,7 +36,9 @@
 			
 			$scope.$on('matchEventsLoaded', function(e){ 
 				var matchBlocks = matchSplitter.execute(matchService.getEvents());
-				$scope.matchBlocks =matchBlocks;
+				//matchBlocks = matchBlocks.block; // strip block stats data
+				$scope.matchBlocks = matchBlocks.blocks;
+				$scope.matchStats = matchBlocks.stats;
 				$scope.breadcrumbItems = createBreadcrumbs(matchCommonFunctionality,'match splitter');
 			});
 	}]);
@@ -52,7 +54,8 @@
 			$scope.world="Scorer!";
 			
 			$scope.$on('matchEventsLoaded', function(e){ 
-				var matchBlocks = matchSplitter.execute(matchService.getEvents());
+				var res = matchSplitter.execute(matchService.getEvents());
+				matchBlocks = res.blocks; // strip block stats data
 				var blockScores = [];
 				for (var matchBlockIndex in matchBlocks) {
 					var matchBlock = matchBlocks[matchBlockIndex];
@@ -74,6 +77,7 @@
 			
 			$scope.$on('matchEventsLoaded', function(e){ 
 				var matchBlocks = matchSplitter.execute(matchService.getEvents());
+				matchBlocks = matchBlocks.blocks; // strip block stats data
 				var touchScoreSet = [];
 				for (var matchBlockIndex in matchBlocks) {
 					var matchBlock = matchBlocks[matchBlockIndex];
@@ -96,6 +100,8 @@
 			
 			$scope.$on('matchEventsLoaded', function(e){ 
 				var matchBlocks = matchSplitter.execute(matchService.getEvents());
+				matchBlocks = matchBlocks.blocks; // strip block stats
+
 				var touchScoreSet = [];
 				for (var matchBlockIndex in matchBlocks) {
 					var matchBlock = matchBlocks[matchBlockIndex];

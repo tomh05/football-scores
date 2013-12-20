@@ -11,8 +11,8 @@ function matchSplitter() {
 	
 	function execute(matchEvents) {
 
-        var matchBlocks = []; 
-        var curBlock = {touches:[],_team_id:0, debug:""};
+        var matchBlocks = {blocks:[],stats:[]}; 
+        var curBlock = {touches:[],_team_id:0, debug:"",color:""};
         var isNewBlock;
         var debugStatus;
 
@@ -115,8 +115,8 @@ function matchSplitter() {
 
 
             if (isNewBlock) {
-                matchBlocks.push(curBlock);
-                curBlock = {touches:[],_team_id:e._team_id, debug:debugStatus};
+                matchBlocks.blocks.push(curBlock);
+                curBlock = {touches:[],_team_id:e._team_id, debug:debugStatus, color:"#0F0"};
                 curBlock.touches.push(e);
             } else
             {
@@ -125,29 +125,34 @@ function matchSplitter() {
 
         }
 
-        matchBlocks.push(curBlock);
+        matchBlocks.blocks.push(curBlock);
         
         // delete any blocks with no touches
-        for (var i=matchBlocks.length-1;i>=0;i--) {
-        	if (matchBlocks[i].touches.length==0) {
-        		matchBlocks.splice(i, 1);
+        for (var i=matchBlocks.blocks.length-1;i>=0;i--) {
+        	if (matchBlocks.blocks[i].touches.length==0) {
+        		matchBlocks.blocks.splice(i, 1);
         	}
         }
         
 
 
         // calculate average block size
-        var idA = matchBlocks[0]._team_id;
+        var idA = matchBlocks.blocks[0]._team_id;
         var nA = 0;
         var nB = 0;
         var totalA = 0;
         var totalB = 0;
-        for (var i=0; i < matchBlocks.length;i++) {
-            if (matchBlocks[i]._team_id== idA) {
-                totalA += matchBlocks[i].length;
+        for (var i=0; i < matchBlocks.blocks.length;i++) {
+            if (matchBlocks.blocks[i]._team_id== idA) {
+
+                matchBlocks.blocks[i].color="#FF9";
+
+                totalA += matchBlocks.blocks[i].length;
                 nA++;
             } else {
-                totalB += matchBlocks[i].length;
+
+                matchBlocks.blocks[i].color="#CEF";
+                totalB += matchBlocks.blocks[i].length;
                 nB++;
             }
         }
