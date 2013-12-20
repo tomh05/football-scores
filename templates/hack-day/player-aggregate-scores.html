@@ -5,7 +5,7 @@
 			<tr>
 				<th>Score</th><th>Player</th>
 			</tr>
-			<tr ng-repeat="playerAggregateScore in playerAggregateScores">
+			<tr ng-repeat="playerAggregateScore in playerAggregateScores|orderBy:'-score'">
 				<td>{{playerAggregateScore.score}}</td>
 				<td>
 				{{findPlayer(playerAggregateScore.id).getName()}}<br />

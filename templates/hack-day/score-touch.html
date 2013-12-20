@@ -1,15 +1,17 @@
 <match-navigation selected="score-touch" is-fixture="false"></match-navigation>
 <div class="container">
-	<h1>Score Touches</h1>
+	<h1>Touch Scores</h1>
 	<div ng-repeat="touchScores in touchScoreSet" ng-if="touchScoreSet">
 		<h2>Block {{$index}}</h2>
+        <p><b>{{getTeamById(touchScores._team_id).Name}}</b> - Block Score = {{touchScores.blockScore.score}}  </p>
 		<table class="table table-striped stats-table" ng-if="touchScores">
 			<tr>
-				<th>Score</th><th>ID</th><th>Time</th><th>Team</th><th>Player</th><th>Event</th>
+				<th>Percentage</th><th>Score</th><th>ID</th><th>Time</th><th>Team</th><th>Player</th><th>Event</th>
 				<th>X,Y</th><th>Qualifiers</th>
 			</tr>
-			<tr ng-repeat="touchScore in touchScores">
-				<td>{{touchScore.score}}</td>
+			<tr ng-repeat="touchScore in touchScores.scores">
+				<td>{{touchScore.percentage*100|number:2}}%</td>
+				<td>{{touchScore.score|number:2}}</td>
 				<td>{{touchScore.touch._event_id}}</td>
 				<td title="{{touchScore.touch._timestamp}}">{{matchTime(touchScore.touch._min,touchScore.touch._sec)}}</td>
 				<td>{{getTeamById(touchScore.touch._team_id).Name}}</td>

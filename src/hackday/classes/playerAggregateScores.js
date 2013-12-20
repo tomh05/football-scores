@@ -24,12 +24,13 @@ function playerAggregateScores() {
 	
 				// find out the player and their score
 				var playerId = scoredTouch.touch._player_id;
-				
-				// and add their score to it
-				if (playerScoresMappedById[playerId] == null) {
-					playerScoresMappedById[playerId] = 0;
+				if (playerId != null) {
+					// and add their score to it
+					if (playerScoresMappedById[playerId] == null) {
+						playerScoresMappedById[playerId] = 0;
+					}
+					playerScoresMappedById[playerId] += scoredTouch.score;
 				}
-				playerScoresMappedById[playerId] += scoredTouch.score;
 				
 			}
 			

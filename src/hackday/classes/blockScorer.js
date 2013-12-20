@@ -12,19 +12,24 @@ function blockScorer() {
 
 		//  iterate backwards to find last touch by teamWithPossession
 		var numTouches = matchBlock.touches.length;
+		var lastTouch = null;
 		for (i = numTouches - 1; i > 0; i--) {
-			var lastTouch = matchBlock.touches[i];
+			lastTouch = matchBlock.touches[i];
 
 			// dis-regard outs (typeid = 5)
 			if ((teamWithPossession == lastTouch._team_id) && (lastTouch._type_id != 5)) {
 				break;
 			}
+			lastTouch = null;
 		}
 
-		// calculate the distace from the goal
-		var distanceFromOpponentsGoal = Math.sqrt(Math.pow(100 - lastTouch._x, 2) + Math.pow(50 - lastTouch._y, 2));
+		if (lastTouch != null) {
+			// calculate the distace from the goal
+			var distanceFromOpponentsGoal = Math.sqrt(Math.pow(100 - lastTouch._x, 2) + Math.pow(50 - lastTouch._y, 2));
 
-		var blockScoreValue = (1 - (distanceFromOpponentsGoal / maxDistance)) * 10;
+			var blockScoreValue = (1 - (distanceFromOpponentsGoal / maxDistance)) * 10;
+		} else
+			blockScoreValue = 0;
 
 		var blockScore = {score: blockScoreValue, matchBlock: matchBlock};
 		return blockScore;
