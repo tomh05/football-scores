@@ -13,7 +13,7 @@ function blockScorer() {
 		//  iterate backwards to find last touch by teamWithPossession
 		var numTouches = matchBlock.touches.length;
 		var lastTouch = null;
-		for (i = numTouches - 1; i > 0; i--) {
+		for (i = numTouches - 1; i >= 0; i--) {
 			lastTouch = matchBlock.touches[i];
 
 			// dis-regard outs (typeid = 5)
