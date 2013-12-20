@@ -11,21 +11,27 @@ function scoreTouches() {
 	TouchScore  - {touch:matchEvent,score:score}
 	*/
 	function execute(matchBlock, blockScore) {
-		var touchScores = [];
-		var possesionTeamId = getPossesionTeam(matchBlock);
+		var possesionTeamId = matchBlock._team_id;
+		var touchScores = {scores:[],blockScore:blockScore,_team_id:possesionTeamId};
 		var score = blockScore.score;
-		for (var touchIndex=  matchBlock.touches.length-1; score>0 && touchIndex>=0; touchIndex--) {
+		var percentage = 1;
+		var totalTouches =  matchBlock.touches.length-1;
+		for (var touchIndex= totalTouches; percentage>0 && touchIndex>=0; touchIndex--) {
 			var touch = matchBlock.touches[touchIndex];
-			var touchScore = {touch:touch,score:0};
+			var touchScore = {touch:touch,score:0, percentage:percentage};
 			if (touch._team_id == possesionTeamId) {
-				touchScore.score=score;
+				touchScore.score=score*percentage;
 			} else if (touchIndex==matchBlock.touches.length-1) {
-				touchScore.score=score;
+				touchScore.score=score*percentage;
 			}
-			touchScores[touchIndex]=touchScore;
-			score -=0.5;
+			touchScores.scores[touchIndex]=touchScore;
+			percentage = calculatePercentage(percentage,touchIndex,totalTouches);
 		}
 		return touchScores;
+	}
+	
+	function calculatePercentage(currentPercentage,currentTouchNumber, totalTouches) {
+		return currentPercentage-0.05;
 	}
 	
 	function getPossesionTeam(matchBlock) {
