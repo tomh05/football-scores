@@ -4,9 +4,10 @@
 	<h1>Match Splitter</h1>
     <div style="background-color:#EEE; width:100%">
 
-        <p><b> Average block length </b></p>
-    <div style="background-color:#FF9; border: #CCC 1px solid; height:20px; width:{{matchStats.averageA}}%"> </div>
-    <div style="background-color:#CEF; border: #CCC 1px solid;  height:20px; width:{{matchStats.averageB}}%"> </div>
+        <p><b> Average block length: </b></p>
+    <div style="background-color:#FF9;  border-right: #DD7 2px solid;border-bottom: #DD7 2px solid; height:20px; width:{{matchStats.averageA}}%"> </div>
+
+    <div style="background-color:#CEF; border-right: #BCD 2px solid;border-bottom: #BCD 2px solid; height:20px; width:{{matchStats.averageB}}%"> </div>
  </div>
 	<div ng-repeat="matchBlock in matchBlocks| limitTo:10" ng-if="matchBlocks">
         <h4>Block {{$index}}</h4>
