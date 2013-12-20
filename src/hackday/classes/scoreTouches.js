@@ -13,14 +13,17 @@ function scoreTouches() {
 	function execute(matchBlock, blockScore) {
 		var touchScores = [];
 		var possesionTeamId = getPossesionTeam(matchBlock);
-		
-		for (var touchIndex in matchBlock.touches) {
+		var score = blockScore.score;
+		for (var touchIndex=  matchBlock.touches.length-1; score>0 && touchIndex>=0; touchIndex--) {
 			var touch = matchBlock.touches[touchIndex];
 			var touchScore = {touch:touch,score:0};
 			if (touch._team_id == possesionTeamId) {
-				touchScore.score=blockScore.score;
+				touchScore.score=score;
+			} else if (touchIndex==matchBlock.touches.length-1) {
+				touchScore.score=score;
 			}
-			touchScores.push(touchScore);
+			touchScores[touchIndex]=touchScore;
+			score -=0.5;
 		}
 		return touchScores;
 	}
