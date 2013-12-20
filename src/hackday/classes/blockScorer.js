@@ -10,8 +10,6 @@ function blockScorer() {
 	}
 
 	function execute(matchBlock) {
-		var blockScore = {score:10};
-
 		/*
 
 		teamWithPossesion = matchBlock.team_id;
@@ -25,7 +23,7 @@ function blockScorer() {
 				score = 0;
 
 		*/
-
+		var blockScore = {score:10,matchBlock:matchBlock};
 		return blockScore;
 	}
 

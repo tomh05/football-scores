@@ -2,5 +2,16 @@
 <div class="container">
 	<h1>Block Scorer</h1>
 	Hello {{world}}!
-	{{blockScore}}
+	<table>
+		<tr>
+			<th>Time</td>
+			<td>Team</td>
+			<td>Score</td>
+		</tr>
+		<tr ng-repeat="blockScore in blockScores">
+			<td>{{matchTime(blockScore.matchBlock.touches[0]._min,blockScore.matchBlock.touches[0]._sec)}}</td>
+			<td>{{getTeamById(blockScore.matchBlock._team_id).Name}}</td>
+			<td>{{blockScore.score}}</td>
+		</tr>
+	</table>
 </div>

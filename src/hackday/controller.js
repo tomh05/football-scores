@@ -47,8 +47,13 @@
 			
 			$scope.$on('matchEventsLoaded', function(e){ 
 				var matchBlocks = matchSplitter.execute(matchService.getEvents());
-				var blockScore = blockScorer.execute(matchBlocks[0]);
-				$scope.blockScore =blockScore;
+				var blockScores = [];
+				for (var matchBlockIndex in matchBlocks) {
+					var matchBlock = matchBlocks[matchBlockIndex];
+					var blockScore = blockScorer.execute(matchBlock);
+					blockScores.push(blockScore);
+				}
+				$scope.blockScores=blockScores;
 			});
 	}]);
 	
@@ -95,7 +100,19 @@
 			});
 	}]);
 	
-	
+	app.directive('eventTableRow',['commonViewFunctionality',function(commonViewFunctionality){
+		return {
+			scope:{
+				selected: "=event"
+			},
+			restrict: 'E',
+			replace:true,
+			templateUrl: "templates/hack-day/directives/event-table-row.html",
+			controller: function($scope){
+				commonViewFunctionality.initCommonFunctions($scope);
+			}
+		}
+	}]);
 	
 	
 	
