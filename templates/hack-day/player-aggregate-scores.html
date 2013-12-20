@@ -3,13 +3,15 @@
 	<h1>Aggregate Scores</h1>
 	<table class="table table-striped stats-table" ng-if="playerAggregateScores">
 			<tr>
-				<th>Score</th><th>Player</th>
+				<th>Player</th><th>Score</th><th>Score Bar</th>
 			</tr>
 			<tr ng-repeat="playerAggregateScore in playerAggregateScores|orderBy:'-score'">
-				<td>{{playerAggregateScore.score|number:2}}</td>
 				<td>
-				{{findPlayer(playerAggregateScore.id).getName()}}<br />
-				<player-image playerid="{{playerAggregateScore.id}}"></player-image></td>
+					<player-image playerid="{{playerAggregateScore.id}}"></player-image>
+					{{findPlayer(playerAggregateScore.id).getName()}}<br />
+				</td>
+				<td>{{playerAggregateScore.score|number:2}}</td>
+				<td><div style="height: 20px; width: {{playerAggregateScore.score|number:0}}px; background-color: #fede2d;"></div></td>
 			</tr>
 	</table>
 	<pre ng-if="playerAggregateScores">
