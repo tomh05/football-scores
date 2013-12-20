@@ -52,6 +52,10 @@ function matchSplitter() {
                isNewBlock = true; 
                 debugStatus="throw in";
                     }
+                    else if (e.Q[j]._qualifier_id == 124) {
+               isNewBlock = true; 
+                debugStatus="goal kick";
+                    }
                 }
             }
             
