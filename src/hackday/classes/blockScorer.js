@@ -2,28 +2,31 @@ function blockScorer() {
 	// this is effectively a singleton
 	// public methods
 	return {
-		getProp1:getProp1,
-		setProp1:setProp1,
-		incrementProp1:incrementProp1,
 		execute:execute
-
 	}
 
 	function execute(matchBlock) {
-		/*
+		var maxDistance = Math.sqrt(Math.pow(100, 2) + Math.pow(50, 2));
 
-		teamWithPossesion = matchBlock.team_id;
-		lastTouch = iterate backwards to find last touch by teamWithPossession
-		if (lastTouch == goal)
-			score = 10;
-		else
-			if (positionInField == onOtherTeamsSide ( /10)
-				score = 2;
-			else
-				score = 0;
+		var teamWithPossession = matchBlock._team_id;
 
-		*/
-		var blockScore = {score:10,matchBlock:matchBlock};
+		//  iterate backwards to find last touch by teamWithPossession
+		var numTouches = matchBlock.touches.length;
+		for (i = numTouches - 1; i > 0; i--) {
+			var lastTouch = matchBlock.touches[i];
+
+			// dis-regard outs (typeid = 5)
+			if ((teamWithPossession == lastTouch._team_id) && (lastTouch._type_id != 5)) {
+				break;
+			}
+		}
+
+		// calculate the distace from the goal
+		var distanceFromOpponentsGoal = Math.sqrt(Math.pow(100 - lastTouch._x, 2) + Math.pow(50 - lastTouch._y, 2));
+
+		var blockScoreValue = (1 - (distanceFromOpponentsGoal / maxDistance)) * 10;
+
+		var blockScore = {score: blockScoreValue, matchBlock: matchBlock};
 		return blockScore;
 	}
 
