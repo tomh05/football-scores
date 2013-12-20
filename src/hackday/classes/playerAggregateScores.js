@@ -19,8 +19,8 @@ function playerAggregateScores() {
 			var block = touchScoreSets[blockIndex];
 			
 			// for each touch
-			for (var scoredTouchIndex in block) {
-				var scoredTouch = block[scoredTouchIndex];
+			for (var scoredTouchIndex in block.scores) {
+				var scoredTouch = block.scores[scoredTouchIndex];
 	
 				// find out the player and their score
 				var playerId = scoredTouch.touch._player_id;
