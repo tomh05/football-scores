@@ -2,7 +2,8 @@
 <div class="container">
 	<h1>Match Splitter</h1>
 	<div ng-repeat="matchBlock in matchBlocks| limitTo:60" ng-if="matchBlocks">
-        <h2>Block {{$index}}: {{getTeamById(matchBlock._team_id).Name}} </h2>
+        <h2>Block {{$index}}</h2>
+        <p><b>{{getTeamById(matchBlock._team_id).Name}}</b>: {{matchBlock.debug}} </p>
 		<table class="table table-striped stats-table">
 			<tr>
 				<th>ID</th><th>Time</th><th>Team</th><th>Player</th><th>Event</th>

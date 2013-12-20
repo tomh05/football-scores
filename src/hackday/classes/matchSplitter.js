@@ -12,7 +12,9 @@ function matchSplitter() {
 	function execute(matchEvents) {
 
         var matchBlocks = []; 
-        var curBlock = {touches:[],_team_id:0};
+        var curBlock = {touches:[],_team_id:0, debug:""};
+
+
 
         for (var i=0;i<matchEvents.Event.length; i++) {
 
@@ -34,30 +36,31 @@ function matchSplitter() {
 
             }
 
-            // iterate through qualifiers
-            if (e.Q != null) {
+            // iterate through qualifiers - redundant with pass detection working
+            if (false && e.Q != null) {
                 for (var j=0;j<e.Q.length;j++) {
 
                     // free kick: start new block
                     if (e.Q[j]._qualifier_id == 5) {
                         matchBlocks.push(curBlock);
-                        curBlock = {touches:[],_team_id:0};
+                        curBlock = {touches:[],_team_id:e._team_id, debug:"free kick"};
+                        curBlock.touches.push(matchEvents.Event[i]);
                         continue;
                     }
                     // throw in: start new block
                     else if (e.Q[j]._qualifier_id == 107) {
                         matchBlocks.push(curBlock);
-                        curBlock = {touches:[],_team_id:0};
-
+                        curBlock = {touches:[],_team_id:e._team_id, debug:"throw in"};
+                        curBlock.touches.push(matchEvents.Event[i]);
                         continue;
                     }
                 }
             }
             // if it's a pass, and successful, and by a new team
-            if (e._type_id == 1 && e._outcome && e._team_id != curBlock._team_id) { 
+            if (e._type_id == 1 && e._outcome == 1 && e._team_id != curBlock._team_id) { 
                 matchBlocks.push(curBlock);
-                curBlock = {touches:[],_team_id: e._team_id };
-                
+                curBlock = {touches:[],_team_id:e._team_id, debug:"pass by other team "};
+                curBlock.touches.push(matchEvents.Event[i]);
                 continue;
             }
             /*if (e._type_id == 99994) { // if need new block
