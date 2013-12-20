@@ -55,6 +55,18 @@ function matchSplitter() {
                 }
             }
             
+
+            // if it's ball recovery and previous element belongs to other team, start new block
+            if (e._type_id == 49) {
+            var eminus1 = matchEvents.Event[i-1];
+                if (eminus1._team_id != e._team_id) {
+                   isNewBlock = true;
+                  debugStatus = "ball recovery"; 
+                }
+            }
+
+
+
             // if it's dispossessed and next two elements belong to other team, start new block
             var eminus1 = matchEvents.Event[i-1];
             if (eminus1._type_id == 50) {
@@ -75,7 +87,11 @@ function matchSplitter() {
                 }
             }
 
-
+            // if it's a keeper pickup, start new block
+            if (e._type_id == 52) { 
+               isNewBlock = true; 
+                debugStatus="keeper pick-up";
+            }
 
             // if it's a pass, and successful, and by a new team
             if (e._type_id == 1 && e._outcome == 1 && e._team_id != curBlock._team_id) { 
