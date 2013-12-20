@@ -11,7 +11,7 @@ function matchSplitter() {
 	
 	function execute(matchEvents) {
 
-        var matchBlocks = {blocks:[],stats:[]}; 
+        var matchBlocks = {blocks:[],stats:{}}; 
         var curBlock = {touches:[],_team_id:0, debug:"",color:""};
         var isNewBlock;
         var debugStatus;
@@ -147,18 +147,18 @@ function matchSplitter() {
 
                 matchBlocks.blocks[i].color="#FF9";
 
-                totalA += matchBlocks.blocks[i].length;
+                totalA += matchBlocks.blocks[i].touches.length;
                 nA++;
             } else {
 
                 matchBlocks.blocks[i].color="#CEF";
-                totalB += matchBlocks.blocks[i].length;
+                totalB += matchBlocks.blocks[i].touches.length;
                 nB++;
             }
         }
 
-        //matchBlocks[averageA] = totalA/nA;
-        //matchBlocks[averageB] = totalB/nB;
+        matchBlocks.stats["averageA"] = 100* (totalA/nA) / (totalA/nA + totalB/nB);
+        matchBlocks.stats["averageB"] = 100* (totalB/nB) / (totalA/nA + totalB/nB);
         
 		return matchBlocks;
 	}
