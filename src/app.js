@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('footballPrototypeApp', ['match','fixtures','eventFilterModule','ngRoute','player','preferences'])
+	var app = angular.module('footballPrototypeApp', ['match','fixtures','eventFilterModule','ngRoute','player','preferences','d3'])
 
 	app.config(['$routeProvider',
 	  function($routeProvider) {

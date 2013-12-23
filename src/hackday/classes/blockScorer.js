@@ -17,7 +17,7 @@ function blockScorer() {
 			lastTouch = matchBlock.touches[i];
 
 			// dis-regard outs (typeid = 5)
-			if ((teamWithPossession == lastTouch._team_id) && (lastTouch._type_id != 5)) {
+			if (lastTouch._outcome==1 && (teamWithPossession == lastTouch._team_id) && (lastTouch._type_id != 5)) {
 				break;
 			}
 			lastTouch = null;
@@ -27,7 +27,7 @@ function blockScorer() {
 			// calculate the distace from the goal
 			var distanceFromOpponentsGoal = Math.sqrt(Math.pow(100 - lastTouch._x, 2) + Math.pow(50 - lastTouch._y, 2));
 			var ratio = (distanceFromOpponentsGoal / maxDistance);
-			blockScoreValue = (1 -ratio)  * 10;
+			blockScoreValue = Math.pow(1 -ratio,1)  * 10;
 			
 			// post save or goal
 			if (["14","15","16"].indexOf(lastTouch._type_id)>-1) {

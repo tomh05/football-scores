@@ -9,8 +9,6 @@
 	position:absolute;
 	left:0;
 	top:0;
-	
-	
 }
 
 .red {
@@ -109,4 +107,14 @@ li.timeline-element.Goal span.event-time {
 
 .significantData {
 	color:red;
+}
+
+.data-bar {
+	height:1.7em;
+	display:inline-block;
+	-webkit-border-radius: 2px;
+	padding: 3px;
+	background-color: #fede2d; 
+	border-right: #cebe0d 2px solid;
+	border-bottom: #cebe0d 2px solid;
 }

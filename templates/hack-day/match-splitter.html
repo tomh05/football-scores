@@ -1,7 +1,8 @@
 <breadcrumbs items="breadcrumbItems"></breadcrumbs>
 <match-navigation selected="match-splitter" is-fixture="false"></match-navigation>
-<div class="container">
+<div class="container" ng-if="matchBlocks">
 	<h1>Match Splitter</h1>
+	<p>There are {{matchBlocks.length}} blocks.</p>
     <div style="background-color:#EEE; width:100%">
 
         <p><b> Average block length: </b></p>
@@ -9,7 +10,8 @@
 
     <div style="background-color:#CEF; border-right: #BCD 2px solid;border-bottom: #BCD 2px solid; height:20px; width:{{matchStats.averageB}}%"> </div>
  </div>
-	<div ng-repeat="matchBlock in matchBlocks| limitTo:10" ng-if="matchBlocks">
+
+	<div ng-repeat="matchBlock in matchBlocks| limitTo:50" ng-if="matchBlocks">
         <h4>Block {{$index}}</h4>
         <p><b>{{getTeamById(matchBlock._team_id).Name}}</b>: {{matchBlock.debug}} </p>
 		<table class="table table-striped stats-table">

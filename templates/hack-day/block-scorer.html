@@ -1,17 +1,28 @@
 <match-navigation selected="block-scorer" is-fixture="false"></match-navigation>
 <breadcrumbs items="breadcrumbItems"></breadcrumbs>
 <div class="container">
+	<h1>Timeline</h1>
+	<p>Timeline based on the scores of each individual play</p>
+	<div d3-bars bar-height="50" bar-padding="2" data="timeline.home" invert="1" max="15"></div>
+	<div d3-bars bar-height="50" bar-padding="2" data="timeline.away" invert="0" max="15"></div>
+	<select ng-model="timelineResolution" ng-init="timelineResolution=2" ng-change="drawTimeLine()">
+		<option value="1">1 minute</option>
+		<option value="2">2 minutes</option>
+		<option value="5">5 minutes</option>
+		<option value="10">10 minutes</option>
+		<option value="15">15 minutes</option>
+	</select>
 	<h1>Block Scorer</h1>
-	<table>
+	<table class="table table-striped stats-table" ng-if="blockScores">
 		<tr>
 			<th>Time</td>
 			<td>Team</td>
-			<td>Score</td>
+			<td width="50%">Score</td>
 		</tr>
-		<tr ng-repeat="blockScore in blockScores">
+		<tr ng-repeat="blockScore in blockScores" ng-if="blockScore.score>0">
 			<td>{{matchTime(blockScore.matchBlock.touches[0]._min,blockScore.matchBlock.touches[0]._sec)}}</td>
 			<td>{{getTeamById(blockScore.matchBlock._team_id).Name}}</td>
-			<td>{{blockScore.score}}</td>
+			<td><databar size="{{blockScore.score}}" maxsize="15"></data-bar></td>
 		</tr>
 	</table>
 </div>

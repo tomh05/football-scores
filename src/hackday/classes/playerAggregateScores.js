@@ -30,10 +30,12 @@ function playerAggregateScores() {
 						playerScoresMappedById[playerId] = {
 							score:0,
 							_player_id:playerId,
-							_team_id:scoredTouch.touch._team_id
+							_team_id:scoredTouch.touch._team_id,
+							scoredTouches:[]
 						};
 					}
 					playerScoresMappedById[playerId].score += scoredTouch.score;
+					playerScoresMappedById[playerId].scoredTouches.push(scoredTouch);
 				}
 				
 			}

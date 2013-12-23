@@ -1,8 +1,20 @@
 <breadcrumbs items="breadcrumbItems"></breadcrumbs>
 <match-navigation selected="score-touch" is-fixture="false"></match-navigation>
 <div class="container">
+	<h1 ng-if="timeline">Timeline</h1>
+	<p ng-if="timeline">Timeline based on the scores of each individual touch</p>
+	<div d3-bars bar-height="50" bar-padding="2" data="timeline.home" invert="1" ng-if="timeline" max="250"></div>
+	<div d3-bars bar-height="50" bar-padding="2" data="timeline.away" invert="0" ng-if="timeline" max="250"></div>
+	<select ng-model="timelineResolution" ng-init="timelineResolution=2" ng-change="drawTimeLine()">
+		<option value="1">1 minute</option>
+		<option value="2">2 minutes</option>
+		<option value="5">5 minutes</option>
+		<option value="10">10 minutes</option>
+		<option value="15">15 minutes</option>
+	</select>
+	<p>Resolution-{{$timelineResolution}}</p>
 	<h1>Touch Scores</h1>
-	<div ng-repeat="touchScores in touchScoreSet" ng-if="touchScoreSet">
+	<div ng-repeat="touchScores in touchScoreSet|limitTo:40" ng-if="touchScoreSet">
 		<h2>Block {{$index}} - {{getTeamById(touchScores._team_id).Name}}</h2>
         <div style="display: inline-block; width: calc({{touchScores.blockScore.score|number:2}} * 10%); height: 25px; background-color: #fede2d; padding:3px; margin-bottom:5px">{{touchScores.blockScore.score|number:2}}</div>
 		<table class="table table-striped stats-table" ng-if="touchScores">

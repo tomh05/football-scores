@@ -112,14 +112,16 @@ angular.module('eventFilterModule',['match'])
 		}
 		
 		function or(eventFilter) {
+			var thisReference = this;
 			return createSelfMethods(function(event) {
-					return self.isMatch(event) || eventFilter.isMatch(event);
+					return thisReference.isMatch(event) || eventFilter.isMatch(event);
 			});
 		}
 		
 		function and(eventFilter) {
+			var thisReference = this;
 			return createSelfMethods(function(event) {
-					return self.isMatch(event) && eventFilter.isMatch(event);
+					return thisReference.isMatch(event) && eventFilter.isMatch(event);
 			});
 		}
 	

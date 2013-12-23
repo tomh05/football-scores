@@ -21,7 +21,8 @@ angular.module('match', ['data'])
   		getMatchId: getMatchId,
   		loadFixtures: loadFixtures,
   		getCompetitionDetails: getCompetitionDetails,
-  		loadCommentary:loadCommentary
+  		loadCommentary:loadCommentary,
+  		getTeamIds:getTeamIds
   	}
   	
   	function iterateEvents(callBackFunction) {
@@ -155,6 +156,21 @@ angular.module('match', ['data'])
 			competition_id: dataLoaderService.stripInitialLetterFromId(match.Competition._uID),
 			season_id: getCompetitionStat("season_id")
 		}	
+	}
+	
+	function getTeamIds() {
+		var teamData = match.MatchData.TeamData;
+		if (teamData[0]._Side == "Home") {
+			return {
+				home:dataLoaderService.stripInitialLetterFromId(teamData[0]._TeamRef),
+				away:dataLoaderService.stripInitialLetterFromId(teamData[1]._TeamRef),
+			}
+		} else {
+			return {
+				home:dataLoaderService.stripInitialLetterFromId(teamData[1]._TeamRef),
+				away:dataLoaderService.stripInitialLetterFromId(teamData[0]._TeamRef),
+			}
+		}
 	}
 	
 	function loadFixtures() {
