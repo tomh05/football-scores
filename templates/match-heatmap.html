@@ -1,0 +1,53 @@
+
+<breadcrumbs items="breadcrumbItems"></breadcrumbs>
+<match-navigation selected="heatmap" is-fixture="false"></match-navigation>
+<div class="container">
+	<h1 style="display:none">Heatmap - {{title}}</h1>
+</div>
+
+
+<div class="container" ng-if="match" ng-init="selectedTeam=match.Team[1]">
+	<div class="row">
+			<div class="col-md-12">
+				<heat-map players-selected="playersSelected" matches-selected="matchesSelected"></heat-map>
+			</div>
+	</div>
+	<div class="row">
+		<div class="inline-form">
+			<div class="col-md-12">
+				<h4>Team</h4>
+				<select id="teamSelector" ng-model="selectedTeam" ng-options="findMatchTeam(team._uID).Name for team in match.Team" ng-change="teamChanged()"></select>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-horizontal" >
+		  		<h4>Players</h4>
+		  		<ul class="inputs-list list-unstyled">
+		  			<li ng-repeat="player in selectedTeam.Player" class="checkbox">
+						  <label for="{{player._uID}}">
+						    <input type="checkbox" id="{{player._uID}}" value="{{player._uID}}" ng-click="playerSelected(player)" name="{{player._uID}}"/> {{player.PersonName.First}} {{player.PersonName.Last}}
+						  </label>
+		  			</li>
+		  		</ul>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="form-horizontal">
+		  		<h4>Fixtures</h4>
+		  		<div class="form-horizontal" >
+		  			<label>Home/Away</label>
+					<select ng-model="homeAwayOptions" ng-init="homeAwayOptions='both'" ng-change="fixtureListChanged()">
+		      			<option value="both">Home and Away</option>
+		      			<option value="home">Home</option>
+		      			<option value="away">Away</option>
+		      		</select>
+          		</div>
+			</p>
+		  		<ul class="inputs-list list-unstyled">
+		  			<li class="checkbox" ng-repeat="fixtureMatch in matches| matchResultsFilter:selectedTeam._uID:homeAwayOptions:match"><label for="{{fixtureMatch._uID}}" ><input type="checkbox" name="fixtures" value="{{fixtureMatch._uID}}" id="{{fixtureMatch._uID}}" ng-click='matchSelected(fixtureMatch)' />{{fixtureMatch.MatchInfo.Date}} {{findTeam(fixtureMatch.TeamData[0]._TeamRef).Name}} {{fixtureMatch.TeamData[0]._Score}} v {{fixtureMatch.TeamData[1]._Score}} {{findTeam(fixtureMatch.TeamData[1]._TeamRef).Name}}</label></li>
+		  		</ul>
+			</div>
+		</div>
+</div>
